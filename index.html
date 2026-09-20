@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booked sales calls for B2B service companies</title>
+<meta name="description" content="We build and run the outbound, and hand you sales calls with buyers who already know your price range and timeline. You pay per call that shows up.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F5F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101211" media="(prefers-color-scheme: dark)">
+
+<!-- Link previews: what people see when your page is pasted into Slack, WhatsApp or LinkedIn.
+     REPLACE the URL and add a 1200x630 image at og:image before launch. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:title" content="Booked sales calls, paid per call that shows up">
+<meta property="og:description" content="We build and run the outbound and hand you calls with buyers who already know your price range and timeline.">
+<meta property="og:image" content="https://example.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230E4F3C'/><path d='M9 17.5l4.5 4.5L23 12' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+<!--
+  ============================================================================
+  REPLACE BEFORE PUBLISHING
+  ----------------------------------------------------------------------------
+  Every value rendered with a dotted underline is a <span class="ph"> placeholder.
+  Find them all with:  grep -o 'class="ph"[^<]*' index.html
+  Checklist:
+   1.  Company name, logo, contact details, company/VAT number  (nav + footer)
+   2.  Hero headline: your offer, your buyer, your commercial model
+   3.  Response time + open-slot counter (must be true, or delete them)
+   4.  Step details: the tools you actually use, real volumes
+   5.  Calculator defaults: your real price per call and typical deal size
+   6.  Case studies: real clients, real numbers, written permission to quote
+   7.  Pricing numbers and the guarantee wording (have it checked legally)
+   8.  Form endpoint: set data-endpoint on <form id="fit-form">
+   9.  Privacy policy + terms URLs in the footer
+   10. Delete #tpl-banner and the .ph styling block once real copy is in
+  ============================================================================
+-->
+
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --paper:#F7F5F0; --card:#FFFFFF; --card-2:#F2EFE8;
+  --ink:#15171C; --ink-2:#4A525C; --ink-3:#5F6771;
+  --line:#E2DCD1; --line-2:#CFC7B8;
+  --accent:#0E4F3C; --accent-hov:#0A3B2C; --on-accent:#FFFFFF;
+  --accent-soft:#E4EFE9; --mark:#A84A14; --mark-soft:#FBEDE2;
+  --ring:#1A7F5A;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(21,23,28,.05),0 8px 24px -12px rgba(21,23,28,.18);
+  --shadow-lg:0 2px 4px rgba(21,23,28,.06),0 24px 48px -24px rgba(21,23,28,.28);
+  --r:14px; --r-sm:9px;
+  --wrap:1120px; --gutter:20px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#101211; --card:#171A19; --card-2:#1E2220;
+    --ink:#F1EFE9; --ink-2:#B3BAB6; --ink-3:#8B938F;
+    --line:#2A2F2C; --line-2:#3A413D;
+    --accent:#3FC08C; --accent-hov:#58D3A1; --on-accent:#06120D;
+    --accent-soft:#16241E; --mark:#E08A4E; --mark-soft:#241A12;
+    --ring:#3FC08C;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.4),0 24px 48px -24px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101211; --card:#171A19; --card-2:#1E2220;
+  --ink:#F1EFE9; --ink-2:#B3BAB6; --ink-3:#8B938F;
+  --line:#2A2F2C; --line-2:#3A413D;
+  --accent:#3FC08C; --accent-hov:#58D3A1; --on-accent:#06120D;
+  --accent-soft:#16241E; --mark:#E08A4E; --mark-soft:#241A12;
+  --ring:#3FC08C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.4),0 24px 48px -24px rgba(0,0,0,.7);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.015em;margin:0}
+h1{font-size:clamp(2.1rem,1.35rem + 3.1vw,3.6rem)}
+h2{font-size:clamp(1.65rem,1.2rem + 1.8vw,2.5rem)}
+h3{font-size:1.16rem;font-family:var(--sans);font-weight:650;letter-spacing:-.01em;line-height:1.3}
+p{margin:0}
+a{color:inherit}
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:2.5px solid var(--ring);outline-offset:3px;border-radius:5px;
+}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--on-accent);padding:12px 18px;z-index:100;border-radius:0 0 var(--r-sm) 0}
+.skip:focus{left:0}
+section{padding-block:clamp(56px,7vw,104px);border-top:1px solid var(--line)}
+section[id],[id]{scroll-margin-top:96px}
+.lede{font-size:clamp(1.02rem,.98rem + .3vw,1.19rem);color:var(--ink-2);max-width:60ch}
+.eyebrow{
+  font:600 .74rem/1 var(--sans);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;align-items:center;gap:9px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--line-2);flex:none}
+.sec-head{max-width:66ch;margin-bottom:clamp(30px,4vw,50px)}
+.sec-head p{margin-top:14px}
+
+/* placeholder marker – delete with real copy */
+.ph{
+  border-bottom:1.5px dotted var(--mark);
+  text-decoration:none;cursor:help;
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font:650 .97rem/1 var(--sans);letter-spacing:-.005em;
+  padding:15px 22px;border-radius:var(--r-sm);border:1px solid transparent;
+  text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease,box-shadow .16s ease;
+}
+.btn svg{flex:none;transition:transform .2s ease}
+.btn-primary{background:var(--accent);color:var(--on-accent);box-shadow:var(--shadow)}
+.btn-primary:hover{background:var(--accent-hov);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn-ghost:hover{background:var(--card);border-color:var(--ink-3);transform:translateY(-1px)}
+.btn-sm{padding:11px 16px;font-size:.89rem;min-height:44px}
+.btn-lg{padding:17px 26px;font-size:1.04rem}
+.btn[disabled]{opacity:.55;pointer-events:none}
+
+/* ---------- template banner ---------- */
+#tpl-banner{
+  background:var(--mark-soft);color:var(--ink);border-bottom:1px solid var(--line);
+  font-size:.86rem;
+}
+#tpl-banner .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding-block:9px}
+#tpl-banner b{color:var(--mark)}
+#tpl-banner button{
+  background:none;border:1px solid var(--line-2);color:var(--ink-2);
+  border-radius:99px;padding:7px 13px;min-height:32px;font:inherit;font-size:.78rem;cursor:pointer;flex:none;
+}
+#tpl-banner button:hover{background:var(--card)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s ease,box-shadow .2s ease}
+.nav.is-stuck{border-bottom-color:var(--line);box-shadow:0 6px 20px -18px rgba(0,0,0,.5)}
+.nav .wrap{display:flex;align-items:center;gap:26px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;text-decoration:none;font-size:1.03rem;white-space:nowrap}
+.brand .glyph{width:28px;height:28px;border-radius:8px;background:var(--accent);display:grid;place-items:center;flex:none}
+.brand .glyph svg{width:16px;height:16px}
+.nav-links{display:none;gap:24px;margin-left:auto;align-items:center}
+.nav-links a{font-size:.93rem;color:var(--ink-2);text-decoration:none;position:relative;padding-block:4px}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav .btn{margin-left:auto}
+@media (min-width:900px){
+  .nav-links{display:flex}
+  .nav .btn{margin-left:0}
+}
+@media (max-width:519px){
+  .brand{font-size:.97rem}
+  .nav .wrap{gap:12px}
+  .nav .btn-sm{padding-inline:14px;font-size:.86rem}
+  .hero-cta{gap:10px}
+  .hero-cta .btn{width:100%}
+}
+
+/* ---------- hero ---------- */
+.hero{border-top:0;padding-top:clamp(44px,5vw,72px);padding-bottom:clamp(40px,5vw,64px);position:relative}
+.hero::before{
+  content:"";position:absolute;inset:0 0 auto;height:420px;z-index:-1;
+  background:radial-gradient(60% 100% at 18% 0%,var(--accent-soft) 0%,transparent 70%);
+  opacity:.9;
+}
+.hero-grid{display:grid;gap:clamp(34px,5vw,60px)}
+@media (min-width:980px){.hero-grid{grid-template-columns:1.08fr .92fr;align-items:center}}
+.hero h1 .u{
+  background-image:linear-gradient(transparent 62%,color-mix(in srgb,var(--mark) 28%,transparent) 0);
+  padding-inline:2px;
+}
+.hero .lede{margin-top:22px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-note{display:flex;align-items:flex-start;gap:9px;margin-top:18px;font-size:.88rem;color:var(--ink-3)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ring);flex:none;position:relative;margin-top:8px}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--ring);opacity:.5}
+@media (prefers-reduced-motion:no-preference){
+  .dot::after{animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.7);opacity:.7}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+}
+
+/* hero card: live proof panel */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-lg);overflow:hidden}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--card-2)}
+.panel-head h2{font-family:var(--sans);font-size:.83rem;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.panel-body{padding:6px 18px 18px}
+.thread{list-style:none;margin:0;padding:0}
+.thread li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.thread li:last-child{border-bottom:0}
+.av{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:650 .78rem/1 var(--sans);border:1px solid var(--line)}
+.thread .who{font-weight:600;font-size:.93rem}
+.thread .what{font-size:.82rem;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font:600 .72rem/1 var(--sans);padding:5px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag.warm{background:var(--mark-soft);color:var(--mark)}
+.panel-foot{padding:13px 18px;background:var(--card-2);border-top:1px solid var(--line);font-size:.82rem;color:var(--ink-3)}
+
+/* ---------- stat strip ---------- */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
+.strip .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;padding:0;background:var(--line);max-width:none}
+@media (min-width:760px){.strip .wrap{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--card);padding:26px var(--gutter)}
+.stat .n{font:600 clamp(1.6rem,1.2rem + 1.4vw,2.2rem)/1 var(--serif);letter-spacing:-.02em;display:block}
+.stat .l{font-size:.84rem;color:var(--ink-3);margin-top:7px;display:block}
+
+/* ---------- steps ---------- */
+.steps{display:grid;gap:14px;counter-reset:s}
+@media (min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;
+  counter-increment:s;position:relative;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.step:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--line-2)}
+.step::before{
+  content:counter(s,decimal-leading-zero);
+  font:650 .78rem/1 var(--mono);color:var(--accent);
+  background:var(--accent-soft);border-radius:6px;padding:6px 8px;display:inline-block;margin-bottom:14px;
+}
+.step h3{margin-bottom:8px}
+.step p{font-size:.93rem;color:var(--ink-2)}
+.step .when{font:600 .76rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);position:absolute;top:24px;right:22px}
+
+/* ---------- calculator ---------- */
+.calc{display:grid;gap:18px;align-items:stretch}
+@media (min-width:920px){.calc{grid-template-columns:1fr 1fr}}
+.calc-inputs,.calc-out{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,28px)}
+.calc-out{background:var(--accent);color:var(--on-accent);border-color:transparent;box-shadow:var(--shadow-lg)}
+.field{margin-bottom:22px}
+.field:last-child{margin-bottom:0}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:600;font-size:.94rem;margin-bottom:10px}
+.field .val{font:650 .95rem/1 var(--mono);color:var(--accent);background:var(--accent-soft);padding:6px 9px;border-radius:6px}
+.field .hint{font-size:.81rem;color:var(--ink-3);margin-top:9px}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:99px;margin:0;
+  background:linear-gradient(to right,var(--accent) var(--pct,50%),var(--line) var(--pct,50%));cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--card);
+  border:2.5px solid var(--accent);box-shadow:var(--shadow);cursor:grab;transition:transform .12s ease;
+}
+input[type=range]::-webkit-slider-thumb:active{transform:scale(1.14);cursor:grabbing}
+input[type=range]::-moz-range-thumb{
+  width:22px;height:22px;border-radius:50%;background:var(--card);
+  border:2.5px solid var(--accent);box-shadow:var(--shadow);cursor:grab;
+}
+.calc-out h3{font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;opacity:.75;font-weight:650}
+.big{font:600 clamp(2.4rem,1.6rem + 3.4vw,3.6rem)/1 var(--serif);letter-spacing:-.03em;margin:14px 0 6px;font-variant-numeric:tabular-nums}
+.calc-out .sub{font-size:.95rem;opacity:.82}
+.breakdown{list-style:none;margin:24px 0 0;padding:20px 0 0;border-top:1px solid color-mix(in srgb,var(--on-accent) 22%,transparent)}
+.breakdown li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;font-size:.94rem}
+.breakdown li span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
+.breakdown li.total{border-top:1px solid color-mix(in srgb,var(--on-accent) 22%,transparent);margin-top:9px;padding-top:15px;font-weight:650}
+.calc-note{font-size:.82rem;color:var(--ink-3);margin-top:16px;max-width:62ch}
+
+/* ---------- proof ---------- */
+.cases{display:grid;gap:16px}
+@media (min-width:820px){.cases{grid-template-columns:repeat(3,1fr)}}
+.case{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .18s ease,box-shadow .18s ease}
+.case:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.chip{
+  align-self:flex-start;font:650 .68rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 9px;border-radius:5px;background:var(--mark-soft);color:var(--mark);border:1px dashed var(--mark);
+}
+.case .meta{font-size:.82rem;color:var(--ink-3)}
+.case blockquote{margin:0;font-size:.97rem;color:var(--ink-2);line-height:1.62}
+.case .delta{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:-.02em}
+.case .delta .from{color:var(--ink-3);font-size:1.05rem;text-decoration:line-through;text-decoration-thickness:1px}
+.case .delta .to{color:var(--accent)}
+.case footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:.86rem;color:var(--ink-3)}
+
+/* ---------- pricing ---------- */
+.price-grid{display:grid;gap:16px}
+@media (min-width:880px){.price-grid{grid-template-columns:1.25fr 1fr}}
+.price-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,30px)}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
+.price-row:last-of-type{border-bottom:0}
+.price-row .amt{font:600 1.4rem/1 var(--serif);white-space:nowrap}
+.price-row .what{font-weight:600}
+.price-row .why{font-size:.87rem;color:var(--ink-3);margin-top:4px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.list li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:.94rem;color:var(--ink-2);align-items:start}
+.list svg{width:18px;height:18px;margin-top:3px}
+.list.no svg{color:var(--mark)}
+.list.yes svg{color:var(--accent)}
+
+/* ---------- guarantee ---------- */
+.guarantee{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:clamp(24px,4vw,40px);display:grid;gap:22px}
+@media (min-width:860px){.guarantee{grid-template-columns:auto 1fr;align-items:start;gap:32px}}
+.seal{width:64px;height:64px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;border:1px solid var(--line)}
+.seal svg{width:30px;height:30px}
+.definition{margin-top:18px;background:var(--card-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:18px}
+.definition h4{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+
+/* ---------- faq ---------- */
+.faq{max-width:78ch}
+details{border-bottom:1px solid var(--line)}
+summary{
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:19px 2px;cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--accent)}
+summary .chev{width:18px;height:18px;flex:none;color:var(--ink-3);transition:transform .2s ease}
+details[open] summary .chev{transform:rotate(180deg)}
+details .answer{padding:0 2px 22px;color:var(--ink-2);font-size:.97rem;max-width:68ch}
+details .answer p + p{margin-top:12px}
+
+/* ---------- form ---------- */
+.cta-sec{background:var(--card-2)}
+.form-grid{display:grid;gap:clamp(24px,4vw,44px)}
+@media (min-width:920px){.form-grid{grid-template-columns:1fr 1fr}}
+form .row{display:grid;gap:16px}
+@media (min-width:560px){form .row.two{grid-template-columns:1fr 1fr}}
+.f{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.f label{font-weight:600;font-size:.91rem}
+.f label .opt{font-weight:400;color:var(--ink-3)}
+.f input,.f select,.f textarea{
+  font:inherit;font-size:.97rem;color:var(--ink);background:var(--card);
+  border:1px solid var(--line-2);border-radius:var(--r-sm);padding:13px 14px;width:100%;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.f textarea{min-height:104px;resize:vertical}
+.f input:hover,.f select:hover,.f textarea:hover{border-color:var(--ink-3)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);outline:none}
+.f [aria-invalid="true"],.consent [aria-invalid="true"]{border-color:#C0392B;background:color-mix(in srgb,#C0392B 5%,var(--card))}
+.err{font-size:.84rem;color:#C0392B;display:none;align-items:center;gap:6px}
+.err.show{display:flex}
+.f .ok{color:var(--accent)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.consent{display:grid;grid-template-columns:24px 1fr;gap:11px;align-items:start;font-size:.87rem;color:var(--ink-2);margin:6px 0 20px}
+.consent input{width:24px;height:24px;margin:0;accent-color:var(--accent);cursor:pointer}
+.form-status{margin-top:16px;font-size:.92rem}
+.form-status.err{color:#C0392B}
+.form-status.ok{color:var(--accent);font-weight:600}
+.next{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.next li{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start}
+.next .n{width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:650 .82rem/1 var(--mono)}
+.next strong{display:block;margin-bottom:3px}
+.next p{font-size:.91rem;color:var(--ink-2)}
+
+/* ---------- footer ---------- */
+footer.site{border-top:1px solid var(--line);padding-block:44px;font-size:.88rem;color:var(--ink-3);background:var(--paper)}
+footer.site .cols{display:grid;gap:26px;margin-bottom:30px}
+@media (min-width:760px){footer.site .cols{grid-template-columns:1.4fr 1fr 1fr}}
+footer.site h4{font-family:var(--sans);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);margin-bottom:13px}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:var(--ink);text-decoration:underline}
+.legal{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+/* ---------- sticky mobile cta ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:11px var(--gutter);
+  display:flex;align-items:center;gap:14px;justify-content:space-between;
+  transform:translateY(110%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+  padding-bottom:max(11px,env(safe-area-inset-bottom));
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta p{font-size:.84rem;color:var(--ink-2);line-height:1.35}
+.sticky-cta .btn{flex:none}
+@media (min-width:900px){.sticky-cta{display:none}}
+
+/* ---------- reveal (js only) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(14px)}
+  .js .reveal.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.3,1)}
+  .js .reveal.in.d1{transition-delay:.06s}
+  .js .reveal.in.d2{transition-delay:.12s}
+  .js .reveal.in.d3{transition-delay:.18s}
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media print{.nav,.sticky-cta,#tpl-banner{display:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<a class="skip" href="#main">Skip to content</a>
+
+<div id="tpl-banner">
+  <div class="wrap">
+    <p><b>Template preview.</b> Every <span class="ph" title="placeholder">dotted value</span> is a placeholder — replace it with something true before this goes live.</p>
+    <button type="button" id="tpl-dismiss">Hide</button>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="glyph" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>
+      </span>
+      <span class="ph" title="placeholder: your company name">Northgate Outbound</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#numbers">Your numbers</a>
+      <a href="#proof">Proof</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#apply">Check if we're a fit</a>
+  </div>
+</header>
+
+<main id="main">
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Outbound for B2B service companies</p>
+      <h1>Sales calls with people who already know <span class="u">your price</span> and their timeline.</h1>
+      <p class="lede">
+        We build and run the outbound — list, inboxes, copy, follow-up, objection handling —
+        and hand you booked calls with the thread attached, so you walk in knowing why they replied.
+        You pay <span class="ph" title="placeholder: your commercial model">per call that shows up</span>, not for activity.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#apply">
+          Check if we're a fit
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#how">See exactly how it runs</a>
+      </div>
+      <p class="hero-note">
+        <span class="dot" aria-hidden="true"></span>
+        <span><span class="ph" title="placeholder: keep only if true">2 of 3</span> onboarding slots left for <span class="ph" title="placeholder: current month">October</span> · we reply in <span class="ph" title="placeholder: your real median">under 2 working hours</span></span>
+      </p>
+    </div>
+
+    <div class="panel reveal d1" role="group" aria-labelledby="panel-title">
+      <div class="panel-head">
+        <h2 id="panel-title">This week's booked calls</h2>
+        <span class="tag"><span class="ph" title="placeholder: real count">9 booked</span></span>
+      </div>
+      <div class="panel-body">
+        <ul class="thread">
+          <li>
+            <span class="av" aria-hidden="true">FM</span>
+            <span><span class="who ph" title="placeholder">Facilities MD, 40 staff</span><br><span class="what">"Send me the pricing before Thursday."</span></span>
+            <span class="tag">Showed</span>
+          </li>
+          <li>
+            <span class="av" aria-hidden="true">HR</span>
+            <span><span class="who ph" title="placeholder">HR Director, 120 staff</span><br><span class="what">"We're re-tendering in Q1 — worth a chat."</span></span>
+            <span class="tag">Showed</span>
+          </li>
+          <li>
+            <span class="av" aria-hidden="true">OP</span>
+            <span><span class="who ph" title="placeholder">Ops lead, logistics</span><br><span class="what">"Budget's approved, who do I speak to?"</span></span>
+            <span class="tag warm">Rebooked</span>
+          </li>
+        </ul>
+      </div>
+      <div class="panel-foot">
+        Real threads, names removed. <span class="ph" title="placeholder: your real no-show figure">1 no-show in the last 30 days</span> — and you don't pay for it.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT STRIP ============ -->
+<section class="strip" aria-label="Key numbers" style="padding-block:0">
+  <div class="wrap">
+    <div class="stat"><span class="n" data-count="18" data-suffix=" mo">0 mo</span><span class="l">Average client tenure <span class="ph" title="placeholder">(18 months)</span></span></div>
+    <div class="stat"><span class="n" data-count="41" data-suffix="%">0%</span><span class="l">Of booked calls become proposals <span class="ph" title="placeholder">(41%)</span></span></div>
+    <div class="stat"><span class="n" data-count="3200" data-suffix="">0</span><span class="l">Contacts reached per client / month <span class="ph" title="placeholder">(3,200)</span></span></div>
+    <div class="stat"><span class="n">1 in <span data-count="2" data-suffix="">0</span></span><span class="l">Companies we speak to get turned down</span></div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How it runs</p>
+      <h2>No black box. Here is the whole system.</h2>
+      <p class="lede">If an agency won't show you the mechanism, they're selling you hope. This is every moving part, in order, with the week it happens.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal">
+        <span class="when">Day 0</span>
+        <h3>Fit call, 20 minutes</h3>
+        <p>We check three things: deal size above <span class="ph" title="placeholder: your floor">£4k</span>, capacity to take <span class="ph" title="placeholder">8+</span> calls a month, and an offer that survives a cold inbox. Roughly half the companies we speak to get a no — usually because the offer needs work first, and we'll tell you what.</p>
+      </article>
+      <article class="step reveal d1">
+        <span class="when">Week 1</span>
+        <h3>Build, before a single send</h3>
+        <p>We interview your closer, read your last <span class="ph" title="placeholder">20</span> won and lost deals, and build the list from that — not a bought database. <span class="ph" title="placeholder: your real stack">Four</span> sending domains bought and warmed for <span class="ph" title="placeholder">14 days</span>. You approve every sequence in writing.</p>
+      </article>
+      <article class="step reveal d2">
+        <span class="when">Week 3+</span>
+        <h3>Send, then actually reply</h3>
+        <p>Sequences go out in small daily batches. Every reply is answered by a named person on our team inside <span class="ph" title="placeholder">2 working hours</span> — no autoresponder, no bot. Objections get logged so month two's copy is written against real pushback, not guesses.</p>
+      </article>
+      <article class="step reveal d3">
+        <span class="when">Ongoing</span>
+        <h3>Handover you can walk into</h3>
+        <p>A booked call arrives in your calendar with the full email thread, the company brief, who else sits on the decision, and the line that got the reply. Everything syncs to <span class="ph" title="placeholder: your CRM">your CRM</span>. The data is yours, exportable, on day one or day four hundred.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section id="numbers">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Your numbers, not ours</p>
+      <h2>Work out whether this is worth doing.</h2>
+      <p class="lede">Move the sliders to your own figures. If the bottom line doesn't clear your bar, don't book a call — we'd rather you found that out here than six weeks in.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-inputs reveal" id="calc">
+        <div class="field">
+          <label for="deal">Average value of one new client <span class="val" id="deal-v">£8,000</span></label>
+          <input type="range" id="deal" name="deal" min="1000" max="60000" step="500" value="8000"
+                 aria-describedby="deal-h">
+          <p class="hint" id="deal-h">First-year revenue, not lifetime. Be conservative.</p>
+        </div>
+        <div class="field">
+          <label for="close">Calls you turn into clients <span class="val" id="close-v">20%</span></label>
+          <input type="range" id="close" name="close" min="2" max="60" step="1" value="20"
+                 aria-describedby="close-h">
+          <p class="hint" id="close-h">Your historic close rate from a first meeting. Most B2B service firms sit between 15% and 30%.</p>
+        </div>
+        <div class="field">
+          <label for="calls">Calls booked per month <span class="val" id="calls-v">10</span></label>
+          <input type="range" id="calls" name="calls" min="2" max="40" step="1" value="10"
+                 aria-describedby="calls-h">
+          <p class="hint" id="calls-h">What we'd aim for in month two. <span class="ph" title="placeholder: your real ramp">Month one is usually half this</span> while domains warm up.</p>
+        </div>
+        <p class="calc-note">
+          Cost assumes <span class="ph" title="placeholder: your real price">£2,000 setup, then £250 per call that shows</span>, spread over 12 months.
+          It ignores referrals, repeat work and anything you close from a call that no-showed — so treat it as the floor.
+        </p>
+      </div>
+
+      <div class="calc-out reveal d1">
+        <h3>Twelve-month picture</h3>
+        <p class="big" id="out-net" aria-hidden="true">£0</p>
+        <p class="sub" id="out-sub">net of everything you'd pay us</p>
+        <p class="sr-only" id="out-live" role="status" aria-live="polite"></p>
+        <ul class="breakdown">
+          <li><span>New clients won</span><span id="out-clients">0</span></li>
+          <li><span>Revenue from those clients</span><span id="out-rev">£0</span></li>
+          <li><span>What you'd pay us</span><span id="out-cost">£0</span></li>
+          <li class="total"><span>Return per £1 spent</span><span id="out-roi">0×</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Proof</p>
+      <h2>Three clients, with the parts that didn't go well.</h2>
+      <p class="lede">Named clients, real numbers, and what we'd do differently. Swap these for your own — a vague "great results!" testimonial is worth less than no testimonial at all.</p>
+    </div>
+    <div class="cases">
+      <article class="case reveal">
+        <span class="chip">Placeholder — swap in a real client</span>
+        <p class="meta"><span class="ph" title="placeholder: industry + size">Commercial cleaning · 45 staff · Manchester</span></p>
+        <p class="delta"><span class="from">2 calls/mo</span> <span aria-hidden="true">→</span> <span class="to">11 calls/mo</span></p>
+        <blockquote>"Month one was slow and they told us why instead of hiding it — the first list was too senior. Month three we closed two contracts off it."</blockquote>
+        <footer><span class="ph" title="placeholder: real name, with written permission">Name, Managing Director</span></footer>
+      </article>
+      <article class="case reveal d1">
+        <span class="chip">Placeholder — swap in a real client</span>
+        <p class="meta"><span class="ph" title="placeholder">B2B logistics software · 20 staff</span></p>
+        <p class="delta"><span class="from">£0</span> <span aria-hidden="true">→</span> <span class="to">£140k pipeline</span></p>
+        <blockquote>"We'd been burned by a lead-gen agency before. The difference was seeing the actual emails before they went out, and being able to kill one."</blockquote>
+        <footer><span class="ph" title="placeholder">Name, Head of Sales</span></footer>
+      </article>
+      <article class="case reveal d2">
+        <span class="chip">Placeholder — swap in a real client</span>
+        <p class="meta"><span class="ph" title="placeholder">Facilities management · 200 staff</span></p>
+        <p class="delta"><span class="from">9%</span> <span aria-hidden="true">→</span> <span class="to">34% reply-to-meeting</span></p>
+        <blockquote>"They rewrote the offer before touching the outbound. That conversation was worth more than the first two months of sending."</blockquote>
+        <footer><span class="ph" title="placeholder">Name, Commercial Director</span></footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2>What it costs, on the page, before you talk to anyone.</h2>
+      <p class="lede">If a price is hidden, it's because it's decided after someone guesses your budget. Ours isn't.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="price-row">
+          <div>
+            <p class="what">Build &amp; warm-up</p>
+            <p class="why">Domains, inboxes, list research, interviews, first three sequences. Weeks 1–2.</p>
+          </div>
+          <p class="amt"><span class="ph" title="placeholder: your real setup fee">£2,000</span> <span style="font-size:.8rem;color:var(--ink-3)">once</span></p>
+        </div>
+        <div class="price-row">
+          <div>
+            <p class="what">Per call that shows up</p>
+            <p class="why">Meets the qualification below. No-shows and unqualified calls aren't invoiced.</p>
+          </div>
+          <p class="amt"><span class="ph" title="placeholder: your real per-call price">£250</span></p>
+        </div>
+        <div class="price-row">
+          <div>
+            <p class="what">Minimum term</p>
+            <p class="why">Cold outbound needs <span class="ph" title="placeholder">90 days</span> to be judged fairly. After that it's <span class="ph" title="placeholder">30 days'</span> notice, by email, no exit call.</p>
+          </div>
+          <p class="amt"><span class="ph" title="placeholder">3 months</span></p>
+        </div>
+      </div>
+
+      <div class="price-card reveal d1">
+        <h3 style="margin-bottom:16px">What we don't do</h3>
+        <ul class="list no">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span>Resell you a list we sold to three of your competitors. One client per <span class="ph" title="placeholder: your exclusivity rule">sector, per city</span>.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span>Send AI-written emails unread. Drafting is assisted; a named person edits and signs off every sequence before it sends.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span>Scrape personal inboxes, or email anyone outside a legitimate business-interest basis.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span>Hold your data hostage. Lists, sequences and replies export on request, including the day you leave.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <span>Bill for "strategy", "brand awareness" or hours. You pay for meetings.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUARANTEE ============ -->
+<section>
+  <div class="wrap">
+    <div class="guarantee reveal">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div>
+        <h2>If we don't book <span class="ph" title="placeholder: a number you can actually hit">10 qualified calls in 60 days</span>, month three is free.</h2>
+        <p class="lede" style="margin-top:14px">Not "we'll work harder". You keep the domains, the lists and the sequences either way. The guarantee is only worth something if "qualified" is defined before you sign — so here it is, and it's in the contract too.</p>
+        <div class="definition">
+          <h4>A call counts as qualified when</h4>
+          <ul class="list yes">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>
+              <span>The attendee can sign, or sits in the room with whoever signs.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>
+              <span>The company matches the profile you signed off — size, sector, geography.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>
+              <span>They know what you do and roughly what it costs before the call starts.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>
+              <span>They attend. If they don't, we rebook once and you're not charged.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Objections</p>
+      <h2>The questions you were going to ask on the call.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Isn't cold email dead?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>Untargeted volume is dead — <span class="ph" title="placeholder: your own data">our reply rate on bought lists was 0.4%</span>, which is why we stopped using them. Researched lists with a specific, checkable reason for the email still work; that's the entire job, and it's why we cap how many clients we take.</p></div>
+      </details>
+      <details>
+        <summary>Do you use AI to write the emails?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>For first drafts and research, yes. Nothing sends without a named person rewriting it — you'll see who, and you approve every sequence in writing before it goes out. If an email reads like it was generated, it doesn't ship; that's the fastest way to get a domain burned and a buyer annoyed.</p></div>
+      </details>
+      <details>
+        <summary>What happens to our domain reputation?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>We never send from your primary domain. We buy and warm lookalike domains (<span class="ph" title="placeholder">yourbrand-hq.com</span>), configure SPF, DKIM and DMARC, and keep each inbox under <span class="ph" title="placeholder">30</span> sends a day. If a domain's deliverability drops, it's retired and replaced at our cost.</p></div>
+      </details>
+      <details>
+        <summary>Is this GDPR compliant?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>We email named business roles at companies on a legitimate-interest basis, with the identity of the sender, the source of the data and a working opt-out in every message. Opt-outs are suppressed permanently across every client. We're registered with the <span class="ph" title="placeholder: your real registration">ICO, number ZA123456</span>, and our data processing agreement is signed before any of your data moves. <span class="ph" title="placeholder">Not legal advice — have your own counsel review it.</span></p></div>
+      </details>
+      <details>
+        <summary>When do the first calls land?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>First sends go out in week <span class="ph" title="placeholder">3</span> after domain warm-up. Typically the first booked call lands <span class="ph" title="placeholder">10–20 days</span> after that. Anyone promising meetings in week one is either sending from your main domain or working a list they've already burned.</p></div>
+      </details>
+      <details>
+        <summary>Who actually works on our account?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p><span class="ph" title="placeholder: real names and photos, or delete this answer">Two named people — the strategist who writes your copy and the person who answers replies.</span> You get both on <span class="ph" title="placeholder">a shared Slack channel</span>. No account manager relaying messages, and no offshore team you weren't told about.</p></div>
+      </details>
+      <details>
+        <summary>What if it doesn't work?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>The guarantee above covers the commercial side. Beyond that: after <span class="ph" title="placeholder">90 days</span> you can leave with 30 days' notice, keep every asset, and we'll write you an honest handover on what worked and what didn't. We'd rather that than a client who stays and resents it.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM ============ -->
+<section id="apply" class="cta-sec">
+  <div class="wrap form-grid">
+    <div class="reveal">
+      <p class="eyebrow">Fit check</p>
+      <h2>Four questions. We'll tell you if it's a no.</h2>
+      <p class="lede" style="margin-top:14px">This isn't a "book a demo" form that drops you into a nurture sequence. A person reads it, and replies either way.</p>
+      <ul class="next" style="margin-top:32px">
+        <li><span class="n">1</span><div><strong>You get a reply from a person</strong><p>Usually within <span class="ph" title="placeholder: be honest">2 working hours</span>, always the same day.</p></div></li>
+        <li><span class="n">2</span><div><strong>A straight yes or no</strong><p>If your deal size or capacity doesn't fit, we say so in the email and point you somewhere better. <span class="ph" title="placeholder">About half</span> get this answer.</p></div></li>
+        <li><span class="n">3</span><div><strong>If it's a yes, a 20-minute call</strong><p>No deck. We go through your last <span class="ph" title="placeholder">10</span> deals and work out whether the numbers hold up.</p></div></li>
+      </ul>
+    </div>
+
+    <div class="reveal d1">
+      <form id="fit-form" class="price-card" novalidate data-endpoint="">
+        <div class="f">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-e">
+          <p class="err" id="name-e">Please tell us what to call you.</p>
+        </div>
+        <div class="f">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="email-e">
+          <p class="err" id="email-e">That doesn't look like a work email address.</p>
+        </div>
+        <div class="f">
+          <label for="site">Company website</label>
+          <input id="site" name="site" type="text" inputmode="url" placeholder="yourcompany.com" required aria-describedby="site-e">
+          <p class="err" id="site-e">We need your site to check whether we're a fit.</p>
+        </div>
+        <div class="f">
+          <label for="deal-size">Typical first-year value of a new client</label>
+          <select id="deal-size" name="deal_size" required aria-describedby="deal-size-e">
+            <option value="">Choose one</option>
+            <option>Under £4,000</option>
+            <option>£4,000 – £15,000</option>
+            <option>£15,000 – £50,000</option>
+            <option>Over £50,000</option>
+          </select>
+          <p class="err" id="deal-size-e">Pick the closest band — it decides whether this works for you.</p>
+        </div>
+        <div class="f">
+          <label for="who">Who do you sell to, and what's stopping you reaching them? <span class="opt">(optional)</span></label>
+          <textarea id="who" name="who" placeholder="e.g. Facilities managers at 50–500 staff sites in the North West. We get referrals but nothing predictable."></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="company-fax">Leave this empty</label>
+          <input id="company-fax" name="company_fax" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="consent">
+          <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-e">
+          <label for="consent">I'm happy to be emailed about this enquiry. No list, no newsletter — one thread, and you can end it with one word.</label>
+        </div>
+        <p class="err" id="consent-e" style="margin:-12px 0 16px">We need this to be able to reply.</p>
+        <button class="btn btn-primary btn-lg" type="submit" id="submit" style="width:100%">
+          Send it
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="calc-note" style="margin-top:14px">We store what you send here and nothing else. No tracking pixels on this page, no data sold, ever. <a href="#" style="color:var(--accent)">Privacy policy</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:12px">
+          <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></span>
+          <span class="ph" title="placeholder">Northgate Outbound</span>
+        </a>
+        <p><span class="ph" title="placeholder: real registered address">Unit 4, 12 Example Street, Manchester M1 1AA</span><br>
+        Company no. <span class="ph" title="placeholder">12345678</span> · VAT <span class="ph" title="placeholder">GB123456789</span> · ICO <span class="ph" title="placeholder">ZA123456</span></p>
+      </div>
+      <div>
+        <h4>Page</h4>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#numbers">Your numbers</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Talk to a person</h4>
+        <ul>
+          <li><a href="mailto:hello@example.com" class="ph">hello@example.com</a></li>
+          <li><a href="tel:+441610000000" class="ph">0161&nbsp;000&nbsp;0000</a></li>
+          <li><a href="#apply">Fit check form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>© <span id="year">2026</span> <span class="ph" title="placeholder">Northgate Outbound Ltd</span>. All figures on this page are placeholders until replaced.</p>
+      <p><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Data processing agreement</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="sticky">
+  <p><strong><span class="ph" title="placeholder">2</span> slots left</strong> for <span class="ph" title="placeholder">October</span> onboarding</p>
+  <a class="btn btn-primary btn-sm" href="#apply">Check if we're a fit</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- template banner ---------- */
+  var banner = document.getElementById('tpl-banner');
+  var dismiss = document.getElementById('tpl-dismiss');
+  if (dismiss && banner) dismiss.addEventListener('click', function () { banner.remove(); });
+
+  /* ---------- year ---------- */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ---------- sticky nav shadow + mobile CTA ---------- */
+  var nav = document.getElementById('nav');
+  var sticky = document.getElementById('sticky');
+  var apply = document.getElementById('apply');
+  var ticking = false;
+  function onScroll() {
+    var sy = window.scrollY || window.pageYOffset;
+    if (nav) nav.classList.toggle('is-stuck', sy > 8);
+    if (sticky) {
+      var formTop = apply ? apply.getBoundingClientRect().top : Infinity;
+      sticky.classList.toggle('show', sy > 620 && formTop > window.innerHeight * 0.6);
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  /* ---------- reveal on scroll ---------- */
+  var revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealables.forEach(function (el) { io.observe(el); });
+    // failsafe: if anything is still hidden after the page settles, show it
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        revealables.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+        });
+      }, 400);
+    });
+  } else {
+    revealables.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- count-up stats ---------- */
+  var counters = document.querySelectorAll('[data-count]');
+  function runCount(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduced) { el.textContent = fmtInt(target) + suffix; return; }
+    var start = performance.now(), dur = 1100;
+    function tick(now) {
+      var p = Math.min((now - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmtInt(Math.round(target * eased)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (el) { cio.observe(el); });
+  } else {
+    counters.forEach(runCount);
+  }
+
+  /* ---------- helpers ---------- */
+  function fmtInt(n) { return Math.round(n).toLocaleString('en-GB'); }
+  function money(n) {
+    var v = Math.round(n);
+    var neg = v < 0;
+    var s = '£' + fmtInt(Math.abs(v));
+    return neg ? '−' + s : s;
+  }
+
+  /* ---------- ROI calculator ---------- */
+  var SETUP = 2000;       // REPLACE: your setup fee
+  var PER_CALL = 250;     // REPLACE: your price per call that shows
+  var deal = document.getElementById('deal');
+  var close = document.getElementById('close');
+  var calls = document.getElementById('calls');
+
+  function paintRange(el) {
+    var min = +el.min, max = +el.max, v = +el.value;
+    el.style.setProperty('--pct', ((v - min) / (max - min) * 100) + '%');
+  }
+
+  function recalc() {
+    if (!deal || !close || !calls) return;
+    var dealValue = +deal.value;
+    var closeRate = +close.value / 100;
+    var perMonth = +calls.value;
+
+    var callsYear = perMonth * 12;
+    var clients = callsYear * closeRate;
+    var revenue = clients * dealValue;
+    var cost = SETUP + callsYear * PER_CALL;
+    var net = revenue - cost;
+    var roi = cost > 0 ? revenue / cost : 0;
+
+    document.getElementById('deal-v').textContent = money(dealValue);
+    document.getElementById('close-v').textContent = close.value + '%';
+    document.getElementById('calls-v').textContent = calls.value;
+
+    document.getElementById('out-net').textContent = money(net);
+    document.getElementById('out-clients').textContent = clients.toFixed(clients < 10 ? 1 : 0);
+    document.getElementById('out-rev').textContent = money(revenue);
+    document.getElementById('out-cost').textContent = money(cost);
+    document.getElementById('out-roi').textContent = roi.toFixed(1) + '×';
+
+    var sub = document.getElementById('out-sub');
+    sub.textContent = net <= 0
+      ? 'you would lose money at these numbers — don’t book a call'
+      : 'net of everything you would pay us, over 12 months';
+
+    document.getElementById('out-live').textContent =
+      money(net) + ' net over twelve months, from ' + clients.toFixed(0) +
+      ' new clients, at a return of ' + roi.toFixed(1) + ' times what you spend.';
+
+    [deal, close, calls].forEach(paintRange);
+  }
+
+  [deal, close, calls].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener('input', recalc);
+    paintRange(el);
+  });
+  recalc();
+
+  /* ---------- form validation ---------- */
+  var form = document.getElementById('fit-form');
+  if (form) {
+    var status = document.getElementById('form-status');
+    var submitBtn = document.getElementById('submit');
+    var freeMail = /@(gmail|yahoo|hotmail|outlook|icloud|live|aol|protonmail|gmx)\./i;
+
+    function fieldOf(input) { return input.closest('.f') || input.closest('.consent') || form; }
+    function errorEl(input) { return document.getElementById(input.id + '-e'); }
+
+    function validate(input, silent) {
+      var ok = true, msg = '';
+      var v = (input.value || '').trim();
+
+      if (input.type === 'checkbox') {
+        ok = input.checked;
+      } else if (input.hasAttribute('required') && !v) {
+        ok = false;
+      } else if (input.id === 'email') {
+        ok = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v);
+        if (ok && freeMail.test(v)) { ok = false; msg = 'Please use your company address — it tells us who you are.'; }
+      } else if (input.id === 'site') {
+        ok = /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/.*)?$/i.test(v);
+      }
+
+      var err = errorEl(input);
+      if (err) {
+        if (msg) err.textContent = msg;
+        err.classList.toggle('show', !ok && !silent);
+      }
+      input.setAttribute('aria-invalid', String(!ok && !silent));
+      return ok;
+    }
+
+    var fields = Array.prototype.slice.call(form.querySelectorAll('input[required],select[required],textarea[required]'));
+    fields.forEach(function (input) {
+      input.addEventListener('blur', function () { validate(input); });
+      input.addEventListener('input', function () {
+        if (input.getAttribute('aria-invalid') === 'true') validate(input);
+      });
+      input.addEventListener('change', function () { validate(input); });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      status.className = 'form-status';
+      status.textContent = '';
+
+      var firstBad = null;
+      fields.forEach(function (input) { if (!validate(input) && !firstBad) firstBad = input; });
+
+      if (firstBad) {
+        status.classList.add('err');
+        status.textContent = 'Four fields, and one of them needs another look.';
+        firstBad.focus({ preventScroll: false });
+        return;
+      }
+
+      // honeypot: silently accept and drop
+      if (form.company_fax && form.company_fax.value) { return; }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      var endpoint = form.getAttribute('data-endpoint');
+      var payload = new FormData(form);
+
+      var done = function (ok) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = ok ? 'Sent' : 'Try again';
+        status.className = 'form-status ' + (ok ? 'ok' : 'err');
+        status.textContent = ok
+          ? 'Got it. ' + (payload.get('name') || 'You') + ' — a reply is coming from a person, not a sequence.'
+          : 'That didn’t send. Email us directly and we’ll pick it up.';
+        if (ok) { form.reset(); [deal, close, calls].forEach(function (el) { el && paintRange(el); }); }
+      };
+
+      if (!endpoint) {
+        // No endpoint wired yet — template mode.
+        setTimeout(function () {
+          done(true);
+          status.textContent += ' (Template preview: set data-endpoint on the form to send for real.)';
+        }, 700);
+        return;
+      }
+
+      fetch(endpoint, { method: 'POST', body: payload, headers: { Accept: 'application/json' } })
+        .then(function (r) { done(r.ok); })
+        .catch(function () { done(false); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
