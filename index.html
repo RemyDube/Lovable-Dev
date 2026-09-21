@@ -3,58 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CLOSER — More buyers through your showroom doors</title>
-<meta name="description" content="We market your actual inventory, then our closers work every enquiry by phone until there is a name, a time and a stock number on your appointment board. You pay per appointment that shows.">
+<title>CLOSER — You don't pay until a deal closes</title>
+<meta name="description" content="We market your inventory and call every buyer until they're booked in. You pay $399 when a car is delivered. Nothing before that.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060A14">
 
-<!-- Link preview. og:image is the one the live site is missing: without it every
-     share on LinkedIn, WhatsApp or Slack renders a blank card. 1200x630. -->
+<!-- og:image is the one the live site is missing: without it every share renders a blank card. 1200x630. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://REPLACE-ME.com/">
-<meta property="og:title" content="CLOSER — More buyers through your showroom doors">
-<meta property="og:description" content="Inventory marketing plus remote closers who book buyers onto your appointment board. You pay per appointment that shows up.">
+<meta property="og:title" content="CLOSER — You don't pay until a deal closes">
+<meta property="og:description" content="We market your inventory and call every buyer until they're booked in. $399 per car delivered. Nothing before that.">
 <meta property="og:image" content="https://REPLACE-ME.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CLOSER — More buyers through your showroom doors">
-<meta name="twitter:description" content="Inventory marketing plus remote closers who book buyers onto your appointment board. You pay per appointment that shows up.">
+<meta name="twitter:title" content="CLOSER — You don't pay until a deal closes">
+<meta name="twitter:description" content="We market your inventory and call every buyer until they're booked in. $399 per car delivered.">
 <link rel="canonical" href="https://REPLACE-ME.com/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2321D3EE'/><path d='M9 17l4.5 4.5L23 11' stroke='%23060A14' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='9' fill='%2321D3EE'/><text x='20' y='30' font-family='Anton,Impact,sans-serif' font-size='30' text-anchor='middle' fill='%230A0E1C'>C</text></svg>">
 
 <!--
   ============================================================================
-  REPLACE BEFORE PUBLISHING
+  REPLACE BEFORE PUBLISHING  —  every dotted value is a placeholder
   ----------------------------------------------------------------------------
-  Every value with a dotted underline is a placeholder: grep -c 'class="ph"'
-   1.  Legal entity, address, registration number, phone           (footer)
-   2.  og:url / og:image / canonical above  (blank share cards today)
-   3.  Response time, appointment counts, show rate               (hero + stats)
+   1.  Legal entity, address, registration number, phone         (footer)
+   2.  og:url / og:image / canonical above   (blank share cards today)
+   3.  Reply time, deal counts, show rate                  (hero + stats)
    4.  Territory availability line — delete it if it isn't true
-   5.  Pricing: setup fee, price per appointment, minimum term
-   6.  CALC_SETUP / CALC_PER_APPT in the script, to match pricing
-   7.  Case studies: real rooftops, real numbers, written permission
-   8.  Guarantee numbers — have the wording checked by your lawyer
-   9.  Compliance answers in the FAQ (CASL / TCPA / DNC registration)
-   10. Form endpoint: set data-endpoint on <form id="apply-form">
-   11. Privacy policy and terms URLs
-   12. Delete #tpl-banner and the .ph rule once real copy is in
+   5.  $399 per closed deal: also set DEAL_FEE in the script
+   6.  Case studies: real rooftops, real numbers, written permission
+   7.  "Closed deal" definition — have your lawyer read it
+   8.  Compliance answers in the FAQ (CASL / TCPA / DNC)
+   9.  Form endpoint: set data-endpoint on <form id="apply-form">
+   10. Privacy + terms URLs, then delete #tpl-banner and the .ph rule
   ============================================================================
 -->
 
 <style>
-/* ---------- tokens (converted from the project's oklch palette) ---------- */
+/* ---------- tokens (from the project's oklch palette) ---------- */
 :root{
-  --ink:#060A14; --surface:#0A0E1C; --card:#0F172B; --card-2:#121C33;
+  --ink:#060A14; --surface:#0A0E1C; --card:#0F172B;
   --mist:#E8EEFC; --muted:#A8B6D1;
   --line:rgba(232,238,252,.12); --line-2:rgba(232,238,252,.22);
-  --brand:#0A4DD6; --brand-hov:#0B57F0; --accent:#21D3EE; --accent-dim:#0E7A8C;
+  --brand:#0A4DD6; --brand-hov:#0B57F0; --accent:#21D3EE;
   --accent-soft:rgba(33,211,238,.12);
-  --flag:#F0A85C; --flag-soft:rgba(240,168,92,.13);
-  --bad:#FF8A8A;
+  --flag:#F0A85C; --flag-soft:rgba(240,168,92,.13); --bad:#FF8A8A;
   --display:"Anton","Arial Narrow",Impact,system-ui,sans-serif;
   --body:"Manrope",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -65,74 +60,103 @@
 html{-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{
-  margin:0;color:var(--mist);font-family:var(--body);font-size:17px;line-height:1.62;
-  background:
-    radial-gradient(1100px 620px at 82% -12%,#173A8C 0%,transparent 58%),
-    radial-gradient(820px 540px at -8% 108%,#0E2A63 0%,transparent 52%),
-    linear-gradient(162deg,var(--surface) 0%,var(--ink) 100%) fixed;
-  background-color:var(--ink);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  margin:0;color:var(--mist);font-family:var(--body);font-size:17px;line-height:1.6;
+  background:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img,svg{max-width:100%;display:block}
 h1,h2,h3{margin:0}
-h1,h2,.display{font-family:var(--display);font-weight:400;letter-spacing:.005em;line-height:.94;text-transform:uppercase}
+h1,h2{font-family:var(--display);font-weight:400;line-height:.95;text-transform:uppercase;letter-spacing:.004em}
 h1{font-size:clamp(2.4rem,1.5rem + 3.9vw,4.4rem)}
-h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.1rem)}
-h3{font-family:var(--body);font-size:1.12rem;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,1.35rem + 2.3vw,2.9rem)}
+h3{font-family:var(--body);font-size:1.08rem;font-weight:700;line-height:1.3;letter-spacing:-.01em}
 p{margin:0}
 a{color:inherit}
 :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
 .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--ink);padding:12px 18px;font-weight:700}
 .skip:focus{left:0}
-section{padding-block:clamp(54px,7vw,100px);border-top:1px solid var(--line)}
+section{padding-block:clamp(50px,6.4vw,92px);border-top:1px solid var(--line)}
 section[id],[id]{scroll-margin-top:92px}
-.lede{font-size:clamp(1.02rem,.98rem + .35vw,1.2rem);color:var(--muted);max-width:58ch}
-.eyebrow{font:700 .74rem/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.lede{font-size:clamp(1.02rem,.98rem + .35vw,1.18rem);color:var(--muted);max-width:52ch}
+.eyebrow{font:700 .73rem/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .eyebrow::before{content:"";width:20px;height:2px;background:var(--accent);flex:none}
-.sec-head{max-width:64ch;margin-bottom:clamp(30px,4vw,52px)}
-.sec-head p{margin-top:16px}
+.sec-head{max-width:56ch;margin-bottom:clamp(28px,3.6vw,46px)}
+.sec-head p{margin-top:14px}
 .ph{border-bottom:1.5px dotted var(--flag);cursor:help;text-decoration:none}
+strong.k{font-weight:800;color:var(--mist)}
+
+/* ---------- reactive background ---------- */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:linear-gradient(168deg,var(--surface) 0%,var(--ink) 62%,#05080F 100%)}
+.bg .tri,.bg .glow,.bg .spot{position:absolute;will-change:transform}
+.bg .tri{
+  background:linear-gradient(142deg,rgba(232,238,252,.085) 0%,rgba(232,238,252,.022) 55%,rgba(232,238,252,.005) 100%);
+  clip-path:polygon(50% 0%,100% 100%,0% 100%);
+  filter:drop-shadow(0 0 1px rgba(232,238,252,.13));
+  transform:translate3d(calc(var(--mx,0) * var(--d,10) * 1px),calc(var(--my,0) * var(--d,10) * 1px + var(--sy,0) * var(--ds,14) * 1px),0) rotate(var(--r,0deg));
+}
+.t1{top:-18%;left:-16%;width:46rem;height:62rem;--d:26;--ds:22;--r:18deg}
+.t2{top:-10%;right:-8%;width:24rem;height:30rem;--d:-34;--ds:-28;--r:-24deg}
+.t3{bottom:-22%;left:14%;width:30rem;height:34rem;--d:18;--ds:-16;--r:14deg}
+.t4{bottom:6%;right:4%;width:14rem;height:18rem;--d:-20;--ds:20;--r:-38deg}
+.bg .glow{border-radius:50%;filter:blur(110px);opacity:.9;
+  transform:translate3d(calc(var(--mx,0) * var(--d,20) * 1px),calc(var(--my,0) * var(--d,20) * 1px + var(--sy,0) * var(--ds,20) * 1px),0)}
+.g1{top:-14%;right:6%;width:34rem;height:34rem;background:#173A8C;--d:22;--ds:26}
+.g2{bottom:-16%;left:-6%;width:28rem;height:28rem;background:#0E2A63;--d:-16;--ds:-22}
+.g3{top:38%;left:46%;width:16rem;height:16rem;background:rgba(33,211,238,.18);filter:blur(120px);--d:30;--ds:34}
+.bg .spot{inset:0;background:radial-gradient(520px circle at var(--x,50%) var(--y,26%),rgba(10,77,214,.34) 0%,rgba(10,77,214,.12) 34%,transparent 68%);transform:none}
+@media (hover:none){.bg .spot{display:none}}
+@media (max-width:700px){
+  .g1{width:20rem;height:20rem;opacity:.7}
+  .g2{width:18rem;height:18rem;opacity:.8}
+  .g3{display:none}
+  .t1{width:30rem;height:42rem}
+  .t2{width:16rem;height:20rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .bg .tri,.bg .glow{transform:rotate(var(--r,0deg))}
+  .bg .spot{display:none}
+}
 
 /* ---------- buttons ---------- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  font:800 .95rem/1 var(--body);letter-spacing:.005em;padding:16px 24px;border-radius:99px;
-  border:1px solid transparent;text-decoration:none;cursor:pointer;white-space:nowrap;min-height:48px;
-  transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease,box-shadow .16s ease;
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font:800 .95rem/1 var(--body);padding:16px 24px;border-radius:99px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;white-space:nowrap;min-height:48px;
+  transition:background-color .16s ease,border-color .16s ease,transform .16s ease,box-shadow .16s ease}
 .btn svg{flex:none;transition:transform .2s ease}
 .btn:hover svg{transform:translateX(3px)}
 .btn-primary{background:var(--accent);color:var(--ink);box-shadow:0 10px 30px -14px rgba(33,211,238,.8)}
 .btn-primary:hover{background:#4CE0F5;transform:translateY(-1px)}
 .btn-primary:active{transform:translateY(0)}
-.btn-brand{background:var(--brand);color:#fff}
-.btn-brand:hover{background:var(--brand-hov);transform:translateY(-1px)}
 .btn-ghost{background:rgba(232,238,252,.05);border-color:var(--line-2);color:var(--mist)}
 .btn-ghost:hover{background:rgba(232,238,252,.11);transform:translateY(-1px)}
 .btn-sm{padding:12px 18px;font-size:.87rem;min-height:44px}
 .btn-lg{padding:18px 28px;font-size:1.02rem;min-height:54px}
 .btn[disabled]{opacity:.5;pointer-events:none}
 
-/* ---------- panels ---------- */
 .card{background:linear-gradient(160deg,rgba(232,238,252,.07),rgba(232,238,252,.025));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
 
 /* ---------- template banner ---------- */
-#tpl-banner{background:var(--flag-soft);border-bottom:1px solid var(--line);font-size:.85rem;color:var(--mist)}
+#tpl-banner{background:var(--flag-soft);border-bottom:1px solid var(--line);font-size:.85rem}
 #tpl-banner .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding-block:9px}
 #tpl-banner b{color:var(--flag)}
 #tpl-banner button{background:none;border:1px solid var(--line-2);color:var(--muted);border-radius:99px;padding:7px 13px;min-height:32px;font:inherit;font-size:.78rem;cursor:pointer;flex:none}
 #tpl-banner button:hover{background:rgba(232,238,252,.08);color:var(--mist)}
 
+/* ---------- logo ---------- */
+.brand{display:flex;align-items:center;gap:.28em;text-decoration:none;white-space:nowrap;font-size:32px}
+.brand .glyph{width:1em;height:1em;border-radius:.22em;background:var(--accent);color:var(--ink);
+  display:grid;place-items:center;flex:none;font-family:var(--display);font-size:1em;line-height:1;
+  padding-top:.04em}
+.brand .glyph span{font-size:.74em}
+.brand .name{font-family:var(--display);font-size:.635em;letter-spacing:.02em;text-transform:uppercase;line-height:1;color:var(--mist)}
+.brand .name i{font-style:normal;color:var(--accent)}
+
 /* ---------- nav ---------- */
 .nav{position:sticky;top:0;z-index:50;background:rgba(6,10,20,.72);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s ease,background-color .2s ease}
-.nav.is-stuck{border-bottom-color:var(--line);background:rgba(6,10,20,.92)}
+.nav.is-stuck{border-bottom-color:var(--line);background:rgba(6,10,20,.93)}
 .nav .wrap{display:flex;align-items:center;gap:24px;height:68px}
-.brand{display:flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap}
-.brand .glyph{width:30px;height:30px;border-radius:8px;background:var(--accent);display:grid;place-items:center;flex:none}
-.brand .glyph svg{width:17px;height:17px}
-.brand .name{font-family:var(--display);font-size:1.32rem;letter-spacing:.06em;text-transform:uppercase}
-.brand .name i{font-style:normal;color:var(--accent)}
+.nav .brand{font-size:30px}
 .nav-links{display:none;gap:26px;margin-left:auto;align-items:center}
 .nav-links a{font-size:.92rem;font-weight:600;color:var(--muted);text-decoration:none;position:relative;padding-block:5px}
 .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
@@ -140,41 +164,40 @@ section[id],[id]{scroll-margin-top:92px}
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav .btn{margin-left:auto}
 @media (min-width:940px){.nav-links{display:flex}.nav .btn{margin-left:0}}
-@media (max-width:519px){.nav .wrap{gap:12px}.brand .name{font-size:1.12rem}.nav .btn-sm{padding-inline:14px;font-size:.82rem}}
+@media (max-width:519px){.nav .wrap{gap:12px}.nav .brand{font-size:26px}.nav .btn-sm{padding-inline:14px;font-size:.82rem}}
 
 /* ---------- hero ---------- */
-.hero{border-top:0;padding-top:clamp(40px,4.5vw,64px);padding-bottom:clamp(40px,5vw,72px)}
-.hero-grid{display:grid;gap:clamp(32px,4.5vw,56px)}
-@media (min-width:1000px){.hero-grid{grid-template-columns:1.06fr .94fr;align-items:center}}
-.hero h1{margin-top:6px}
+.hero{border-top:0;padding-top:clamp(36px,4vw,60px);padding-bottom:clamp(36px,4.5vw,64px)}
+.hero-grid{display:grid;gap:clamp(30px,4vw,52px)}
+@media (min-width:1000px){.hero-grid{grid-template-columns:1.05fr .95fr;align-items:center}}
 .hero h1 .hl{color:var(--accent)}
-.hero .lede{margin-top:24px}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .lede{margin-top:20px;font-size:clamp(1.05rem,1rem + .4vw,1.25rem)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 @media (max-width:559px){.hero-cta .btn{width:100%}}
-.hero-note{display:flex;align-items:flex-start;gap:10px;margin-top:20px;font-size:.88rem;color:var(--muted)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;position:relative;margin-top:9px}
+.hero-note{display:flex;align-items:flex-start;gap:10px;margin-top:18px;font-size:.87rem;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;position:relative;margin-top:8px}
 .dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--accent);opacity:.5}
 @media (prefers-reduced-motion:no-preference){
   .dot::after{animation:pulse 2.4s ease-out infinite}
   @keyframes pulse{0%{transform:scale(.6);opacity:.7}70%{transform:scale(1.6);opacity:0}100%{opacity:0}}
 }
 .panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line)}
-.panel-head h2{font-family:var(--body);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.board{list-style:none;margin:0;padding:6px 18px}
-.board li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.panel-head h2{font-family:var(--body);font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.board{list-style:none;margin:0;padding:4px 18px}
+.board li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
 .board li:last-child{border-bottom:0}
-.board .who{font-weight:700;font-size:.95rem}
+.board .who{font-weight:700;font-size:.93rem}
 .board .what{font-size:.82rem;color:var(--muted)}
-.tag{font:800 .7rem/1 var(--body);letter-spacing:.04em;padding:6px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag{font:800 .7rem/1 var(--body);padding:6px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 .tag.warm{background:var(--flag-soft);color:var(--flag)}
-.panel-foot{padding:14px 18px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.panel-foot{padding:13px 18px;border-top:1px solid var(--line);font-size:.81rem;color:var(--muted)}
 
-/* ---------- stat strip ---------- */
+/* ---------- stats ---------- */
 .strip .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);max-width:none;padding:0}
 @media (min-width:800px){.strip .wrap{grid-template-columns:repeat(4,1fr)}}
-.stat{background:var(--ink);padding:28px var(--gutter)}
-.stat .n{font-family:var(--display);font-size:clamp(2rem,1.5rem + 1.8vw,2.7rem);line-height:1;display:block;color:var(--accent)}
-.stat .l{font-size:.85rem;color:var(--muted);margin-top:9px;display:block}
+.stat{background:rgba(6,10,20,.72);padding:26px var(--gutter)}
+.stat .n{font-family:var(--display);font-size:clamp(1.9rem,1.4rem + 1.8vw,2.6rem);line-height:1;display:block;color:var(--accent)}
+.stat .l{font-size:.84rem;color:var(--muted);margin-top:8px;display:block}
 
 /* ---------- steps ---------- */
 .steps{display:grid;gap:14px}
@@ -182,10 +205,10 @@ section[id],[id]{scroll-margin-top:92px}
 @media (min-width:1060px){.steps{grid-template-columns:repeat(4,1fr)}}
 .step{padding:24px;position:relative;transition:transform .18s ease,border-color .18s ease}
 .step:hover{transform:translateY(-3px);border-color:var(--line-2)}
-.step .num{font-family:var(--display);font-size:1.15rem;color:var(--ink);background:var(--accent);width:38px;height:38px;border-radius:10px;display:grid;place-items:center;margin-bottom:16px}
-.step .when{font:800 .7rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);position:absolute;top:34px;right:24px}
-.step h3{margin-bottom:9px}
-.step p{font-size:.93rem;color:var(--muted)}
+.step .num{font-family:var(--display);font-size:1.1rem;color:var(--ink);background:var(--accent);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px}
+.step .when{font:800 .69rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);position:absolute;top:33px;right:24px}
+.step h3{margin-bottom:8px}
+.step p{font-size:.92rem;color:var(--muted)}
 
 /* ---------- calculator ---------- */
 .calc{display:grid;gap:18px;align-items:stretch}
@@ -193,85 +216,82 @@ section[id],[id]{scroll-margin-top:92px}
 .calc-in,.calc-out{padding:clamp(20px,3vw,30px);border-radius:var(--r)}
 .calc-in{background:linear-gradient(160deg,rgba(232,238,252,.07),rgba(232,238,252,.025));border:1px solid var(--line)}
 .calc-out{background:linear-gradient(155deg,var(--brand) 0%,#0A3BA6 100%);border:1px solid rgba(232,238,252,.18);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center}
-.field{margin-bottom:24px}
+.field{margin-bottom:26px}
 .field:last-of-type{margin-bottom:0}
-.field label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:700;font-size:.94rem;margin-bottom:11px}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:700;font-size:.94rem;margin-bottom:12px}
 .field .val{font:700 .95rem/1 var(--mono);color:var(--accent);background:var(--accent-soft);padding:7px 10px;border-radius:7px}
-.field .hint{font-size:.81rem;color:var(--muted);margin-top:10px}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;margin:0;cursor:pointer;
   background:linear-gradient(to right,var(--accent) var(--pct,50%),rgba(232,238,252,.16) var(--pct,50%))}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--ink);border:3px solid var(--accent);cursor:grab;transition:transform .12s ease}
 input[type=range]::-webkit-slider-thumb:active{transform:scale(1.14);cursor:grabbing}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--ink);border:3px solid var(--accent);cursor:grab}
-.calc-out h3{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,238,252,.95);font-weight:800}
-.big{font-family:var(--display);font-size:clamp(2.7rem,1.8rem + 3.8vw,4rem);line-height:1;margin:16px 0 8px;font-variant-numeric:tabular-nums}
-.calc-out .sub{font-size:.95rem;color:rgba(232,238,252,.96)}
-.breakdown{list-style:none;margin:26px 0 0;padding:20px 0 0;border-top:1px solid rgba(232,238,252,.24)}
-.breakdown li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;font-size:.94rem}
+.calc-out h3{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,238,252,.95);font-weight:800}
+.big{font-family:var(--display);font-size:clamp(2.7rem,1.8rem + 3.8vw,4rem);line-height:1;margin:14px 0 8px;font-variant-numeric:tabular-nums}
+.calc-out .sub{font-size:.94rem;color:rgba(232,238,252,.96)}
+.breakdown{list-style:none;margin:24px 0 0;padding:20px 0 0;border-top:1px solid rgba(232,238,252,.24)}
+.breakdown li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;font-size:.93rem}
 .breakdown li span:last-child{font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums}
-.breakdown li.total{border-top:1px solid rgba(232,238,252,.24);margin-top:10px;padding-top:16px;font-weight:800}
-.note{font-size:.82rem;color:var(--muted);max-width:64ch}
+.breakdown li.total{border-top:1px solid rgba(232,238,252,.24);margin-top:9px;padding-top:15px;font-weight:800}
+.note{font-size:.82rem;color:var(--muted);max-width:60ch}
 .calc-in .note{margin-top:24px}
 
 /* ---------- proof ---------- */
 .cases{display:grid;gap:16px}
 @media (min-width:860px){.cases{grid-template-columns:repeat(3,1fr)}}
-.case{padding:24px;display:flex;flex-direction:column;gap:15px;transition:transform .18s ease,border-color .18s ease}
+.case{padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .18s ease,border-color .18s ease}
 .case:hover{transform:translateY(-3px);border-color:var(--line-2)}
-.chip{align-self:flex-start;font:800 .66rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:6px;background:var(--flag-soft);color:var(--flag);border:1px dashed var(--flag)}
+.chip{align-self:flex-start;font:800 .65rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:6px;background:var(--flag-soft);color:var(--flag);border:1px dashed var(--flag)}
 .case .meta{font-size:.82rem;color:var(--muted)}
-.case .delta{display:flex;align-items:baseline;gap:10px;font-family:var(--display);font-size:1.5rem}
-.case .delta .from{color:var(--muted);font-size:1.05rem;text-decoration:line-through}
+.case .delta{display:flex;align-items:baseline;gap:10px;font-family:var(--display);font-size:1.45rem}
+.case .delta .from{color:var(--muted);font-size:1rem;text-decoration:line-through}
 .case .delta .to{color:var(--accent)}
-.case blockquote{margin:0;font-size:.96rem;color:var(--muted);line-height:1.6}
-.case footer{margin-top:auto;padding-top:15px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.case blockquote{margin:0;font-size:.94rem;color:var(--muted);line-height:1.58}
+.case footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
 
 /* ---------- pricing ---------- */
-.price-grid{display:grid;gap:16px}
-@media (min-width:900px){.price-grid{grid-template-columns:1.2fr 1fr}}
+.price-grid{display:grid;gap:16px;align-items:start}
+@media (min-width:900px){.price-grid{grid-template-columns:1.15fr 1fr}}
 .price-card{padding:clamp(22px,3vw,32px);border-radius:var(--r)}
-.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:17px 0;border-bottom:1px solid var(--line)}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .price-row:last-of-type{border-bottom:0}
-.price-row .amt{font-family:var(--display);font-size:1.6rem;white-space:nowrap;color:var(--accent)}
+.price-row .amt{font-family:var(--display);font-size:1.55rem;white-space:nowrap;color:var(--accent)}
+.price-row .amt.zero{color:var(--mist)}
 .price-row .what{font-weight:700}
-.price-row .why{font-size:.87rem;color:var(--muted);margin-top:5px}
+.price-row .why{font-size:.86rem;color:var(--muted);margin-top:4px}
 .list{list-style:none;margin:0;padding:0;display:grid;gap:13px}
-.list li{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:.93rem;color:var(--muted);align-items:start}
+.list li{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:.92rem;color:var(--muted);align-items:start}
 .list svg{width:18px;height:18px;margin-top:3px}
 .list.no svg{color:var(--flag)}
 .list.yes svg{color:var(--accent)}
 
 /* ---------- guarantee ---------- */
-.guarantee{padding:clamp(24px,4vw,44px);border-radius:var(--r);display:grid;gap:24px}
-@media (min-width:880px){.guarantee{grid-template-columns:auto 1fr;gap:34px;align-items:start}}
-.seal{width:66px;height:66px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;border:1px solid var(--line-2)}
-.seal svg{width:30px;height:30px}
-.definition{margin-top:22px;background:rgba(6,10,20,.5);border:1px solid var(--line);border-radius:var(--r-sm);padding:20px}
-.definition h4{font:800 .74rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.guarantee{padding:clamp(24px,3.6vw,40px);border-radius:var(--r);display:grid;gap:22px}
+@media (min-width:880px){.guarantee{grid-template-columns:auto 1fr;gap:32px;align-items:start}}
+.seal{width:62px;height:62px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;border:1px solid var(--line-2)}
+.seal svg{width:28px;height:28px}
+.definition{margin-top:20px;background:rgba(6,10,20,.5);border:1px solid var(--line);border-radius:var(--r-sm);padding:20px}
+.definition h4{font:800 .72rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
 
 /* ---------- faq ---------- */
-.faq{max-width:80ch}
+.faq{max-width:76ch}
 details{border-bottom:1px solid var(--line)}
-summary{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 2px;cursor:pointer;font-weight:700;font-size:1.01rem;list-style:none}
+summary{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:19px 2px;cursor:pointer;font-weight:700;font-size:1rem;list-style:none}
 summary::-webkit-details-marker{display:none}
 summary:hover{color:var(--accent)}
 summary .chev{width:18px;height:18px;flex:none;color:var(--muted);transition:transform .2s ease}
 details[open] summary .chev{transform:rotate(180deg)}
-details .answer{padding:0 2px 22px;color:var(--muted);font-size:.96rem;max-width:70ch}
-details .answer p + p{margin-top:12px}
+details .answer{padding:0 2px 20px;color:var(--muted);font-size:.95rem;max-width:66ch}
 
 /* ---------- form ---------- */
-.form-grid{display:grid;gap:clamp(26px,4vw,46px)}
+.form-grid{display:grid;gap:clamp(24px,3.6vw,44px)}
 @media (min-width:940px){.form-grid{grid-template-columns:1fr 1fr}}
-.f{display:flex;flex-direction:column;gap:8px;margin-bottom:17px}
+.f{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .f label{font-weight:700;font-size:.9rem}
 .f label .opt{font-weight:500;color:var(--muted)}
-.f input,.f select,.f textarea{
-  font:inherit;font-size:.97rem;color:var(--mist);background:rgba(6,10,20,.6);
+.f input,.f select,.f textarea{font:inherit;font-size:.97rem;color:var(--mist);background:rgba(6,10,20,.6);
   border:1px solid var(--line-2);border-radius:var(--r-sm);padding:14px;width:100%;
-  transition:border-color .15s ease,box-shadow .15s ease,background-color .15s ease;
-}
-.f textarea{min-height:104px;resize:vertical}
+  transition:border-color .15s ease,box-shadow .15s ease}
+.f textarea{min-height:92px;resize:vertical}
 .f input::placeholder,.f textarea::placeholder{color:#7F8DA8}
 .f input:hover,.f select:hover,.f textarea:hover{border-color:rgba(232,238,252,.38)}
 .f input:focus,.f select:focus,.f textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);outline:none}
@@ -279,34 +299,31 @@ details .answer p + p{margin-top:12px}
 .err{font-size:.84rem;color:var(--bad);display:none;align-items:center;gap:6px}
 .err.show{display:flex}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.consent{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:.87rem;color:var(--muted);margin:8px 0 18px}
+.consent{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:.86rem;color:var(--muted);margin:8px 0 18px}
 .consent input{width:24px;height:24px;margin:0;accent-color:var(--accent);cursor:pointer}
 .form-status{margin-top:16px;font-size:.92rem}
 .form-status.bad{color:var(--bad)}
 .form-status.good{color:var(--accent);font-weight:700}
-.next{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:20px}
-.next li{display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start}
+.next{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:16px}
+.next li{display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start;font-size:.95rem}
 .next .n{width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:800 .82rem/1 var(--mono)}
-.next strong{display:block;margin-bottom:4px}
-.next p{font-size:.91rem;color:var(--muted)}
 
 /* ---------- footer ---------- */
-footer.site{border-top:1px solid var(--line);padding-block:46px;font-size:.88rem;color:var(--muted)}
-footer.site .cols{display:grid;gap:28px;margin-bottom:32px}
+footer.site{border-top:1px solid var(--line);padding-block:42px;font-size:.87rem;color:var(--muted)}
+footer.site .cols{display:grid;gap:26px;margin-bottom:30px}
 @media (min-width:780px){footer.site .cols{grid-template-columns:1.5fr 1fr 1fr}}
-footer.site h4{font:800 .72rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin:0 0 14px}
+footer.site .brand{font-size:28px;margin-bottom:14px}
+footer.site h4{font:800 .71rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin:0 0 13px}
 footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 footer.site a{text-decoration:none}
 footer.site a:hover{color:var(--mist);text-decoration:underline}
-.legal{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+.legal{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 
 /* ---------- sticky mobile cta ---------- */
-.sticky-cta{
-  position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(6,10,20,.95);backdrop-filter:blur(12px);
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(6,10,20,.95);backdrop-filter:blur(12px);
   border-top:1px solid var(--line);padding:11px var(--gutter);padding-bottom:max(11px,env(safe-area-inset-bottom));
   display:flex;align-items:center;gap:14px;justify-content:space-between;
-  transform:translateY(115%);transition:transform .26s cubic-bezier(.4,0,.2,1);
-}
+  transform:translateY(115%);transition:transform .26s cubic-bezier(.4,0,.2,1)}
 .sticky-cta.show{transform:translateY(0)}
 .sticky-cta p{font-size:.83rem;color:var(--muted);line-height:1.35}
 .sticky-cta .btn{flex:none}
@@ -321,24 +338,35 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   .js .reveal.in.d3{transition-delay:.18s}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-@media print{.nav,.sticky-cta,#tpl-banner{display:none}}
+@media print{.nav,.sticky-cta,#tpl-banner,.bg{display:none}}
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
 <a class="skip" href="#main">Skip to content</a>
 
+<div class="bg" id="bg" aria-hidden="true">
+  <span class="glow g1"></span>
+  <span class="glow g2"></span>
+  <span class="glow g3"></span>
+  <span class="tri t1"></span>
+  <span class="tri t2"></span>
+  <span class="tri t3"></span>
+  <span class="tri t4"></span>
+  <span class="spot"></span>
+</div>
+
 <div id="tpl-banner">
   <div class="wrap">
-    <p><b>Template preview.</b> Every <span class="ph" title="placeholder">dotted value</span> is a placeholder — replace it with something true before this goes live.</p>
+    <p><b>Template preview.</b> Every <span class="ph" title="placeholder">dotted value</span> is a placeholder.</p>
     <button type="button" id="tpl-dismiss">Hide</button>
   </div>
 </div>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top">
-      <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#060A14" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></span>
+    <a class="brand" href="#top" aria-label="CLOSER — home">
+      <span class="glyph" aria-hidden="true"><span>C</span></span>
       <span class="name">Clos<i>er</i></span>
     </a>
     <nav class="nav-links" aria-label="Sections">
@@ -360,47 +388,36 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Inventory marketing + closers</p>
-      <h1>More buyers. <span class="hl">Booked, confirmed,<br>sat in the car.</span></h1>
+      <h1>You don't pay us<br><span class="hl">until the car is sold.</span></h1>
       <p class="lede">
-        We market the units actually sitting on your lot, then our closers work every enquiry by phone
-        until there's a name, a time and a stock number on your appointment board.
-        You pay <span class="ph" title="placeholder: your commercial model">per appointment that shows up</span> — not per lead, not per click.
+        We market your stock and call every buyer until they're booked in.
+        <strong class="k"><span class="ph" title="placeholder: your real fee">$399</span> when a unit is delivered.</strong>
+        Nothing before that — no retainer, no setup, no per-lead fee.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#apply">
           Check my territory
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-ghost btn-lg" href="#how">See exactly how it runs</a>
+        <a class="btn btn-ghost btn-lg" href="#how">How it works</a>
       </div>
       <p class="hero-note">
         <span class="dot" aria-hidden="true"></span>
-        <span>One dealer per brand per territory · <span class="ph" title="placeholder: keep only if true">2 territories open in Alberta</span> · we reply in <span class="ph" title="placeholder: your real median">under 2 hours, 7 days</span></span>
+        <span>One dealer per brand, per territory · <span class="ph" title="placeholder: keep only if true">2 open in Alberta</span></span>
       </p>
     </div>
 
     <div class="card reveal d1" role="group" aria-labelledby="board-title">
       <div class="panel-head">
-        <h2 id="board-title">Last 7 days, across our dealers</h2>
-        <span class="tag"><span class="ph" title="placeholder: real count">31 booked</span></span>
+        <h2 id="board-title">Last 30 days</h2>
+        <span class="tag"><span class="ph" title="placeholder: real count">17 delivered</span></span>
       </div>
       <ul class="board">
-        <li>
-          <span><span class="who">Domestic franchise · 1 rooftop</span><br><span class="what"><span class="ph" title="placeholder">9 appointments · 7 showed · 2 delivered</span></span></span>
-          <span class="tag">Showed</span>
-        </li>
-        <li>
-          <span><span class="who">Import franchise · 2 rooftops</span><br><span class="what"><span class="ph" title="placeholder">14 appointments · 11 showed · 4 delivered</span></span></span>
-          <span class="tag">Showed</span>
-        </li>
-        <li>
-          <span><span class="who">Independent used · 1 rooftop</span><br><span class="what"><span class="ph" title="placeholder">8 appointments · 5 showed · 1 rebooked</span></span></span>
-          <span class="tag warm">Rebooked</span>
-        </li>
+        <li><span><span class="who">Domestic franchise</span><br><span class="what"><span class="ph" title="placeholder">38 appointments · 7 sold</span></span></span><span class="tag">Invoiced 7</span></li>
+        <li><span><span class="who">Import franchise · 2 rooftops</span><br><span class="what"><span class="ph" title="placeholder">61 appointments · 8 sold</span></span></span><span class="tag">Invoiced 8</span></li>
+        <li><span><span class="who">Independent used</span><br><span class="what"><span class="ph" title="placeholder">29 appointments · 2 sold</span></span></span><span class="tag warm">Invoiced 2</span></li>
       </ul>
-      <div class="panel-foot">
-        Rooftops anonymised until a dealer signs off on being named. <span class="ph" title="placeholder: your real figure">Show rate last month: 74%</span> — you're not invoiced for the rest.
-      </div>
+      <div class="panel-foot">Rooftops anonymised until a dealer signs off on being named. Appointments that didn't sell cost them nothing.</div>
     </div>
   </div>
 </section>
@@ -408,10 +425,10 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 <!-- ============ STATS ============ -->
 <section class="strip" aria-label="Key numbers" style="padding-block:0">
   <div class="wrap">
-    <div class="stat"><span class="n" data-count="74" data-suffix="%">0%</span><span class="l">Of booked appointments show up <span class="ph" title="placeholder">(74%)</span></span></div>
-    <div class="stat"><span class="n" data-count="4" data-suffix=" min">0 min</span><span class="l">Median time from enquiry to first call <span class="ph" title="placeholder">(4 min)</span></span></div>
-    <div class="stat"><span class="n" data-count="13" data-suffix=" hrs">0 hrs</span><span class="l">Phone coverage per day, 7 days <span class="ph" title="placeholder">(8am–9pm)</span></span></div>
-    <div class="stat"><span class="n">1 per <span data-count="1" data-suffix="">0</span></span><span class="l">Dealer per brand, per territory — exclusive</span></div>
+    <div class="stat"><span class="n">$<span data-count="399" data-suffix="">0</span></span><span class="l">Per car delivered. That's the whole invoice.</span></div>
+    <div class="stat"><span class="n">$<span data-count="0" data-suffix="">0</span></span><span class="l">Setup, retainer and per-lead fees</span></div>
+    <div class="stat"><span class="n" data-count="74" data-suffix="%">0%</span><span class="l">Appointment show rate <span class="ph" title="placeholder">(74%)</span></span></div>
+    <div class="stat"><span class="n" data-count="4" data-suffix=" min">0 min</span><span class="l">Median enquiry to first call <span class="ph" title="placeholder">(4 min)</span></span></div>
   </div>
 </section>
 
@@ -420,33 +437,32 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">How it runs</p>
-      <h2>No black box. Here is the whole system.</h2>
-      <p class="lede">Every vendor in this category says "we drive qualified traffic". Here is what we actually do, in order, with the week it happens and who does it.</p>
+      <h2>Four steps. No black box.</h2>
     </div>
     <div class="steps">
       <article class="card step reveal">
         <span class="when">Day 0</span>
         <p class="num" aria-hidden="true">1</p>
-        <h3>Territory check, 20 minutes</h3>
-        <p>We look at three things: units in stock, average gross per unit, and whether your floor can absorb <span class="ph" title="placeholder">8+</span> extra appointments a week. If your territory is taken, or the numbers don't work, we say so on that call and you've lost 20 minutes.</p>
+        <h3>Territory check</h3>
+        <p>20 minutes on stock, gross and floor capacity. If the territory's taken or the numbers don't work, we say so on that call.</p>
       </article>
       <article class="card step reveal d1">
         <span class="when">Week 1</span>
         <p class="num" aria-hidden="true">2</p>
-        <h3>Your inventory, not stock photos</h3>
-        <p>We pull your live feed, shoot and write the units that move in your market, and build the ads around stock numbers and payments — not brand slogans. You approve the creative and the budget split before anything runs.</p>
+        <h3>Your inventory, live</h3>
+        <p>We pull your feed, shoot the units that move, and build ads around stock numbers and payments. You approve everything before it runs.</p>
       </article>
       <article class="card step reveal d2">
         <span class="when">Week 2+</span>
         <p class="num" aria-hidden="true">3</p>
-        <h3>Every enquiry called by a person</h3>
-        <p>Named closers, <span class="ph" title="placeholder: your real hours">8am to 9pm local, seven days</span>, first dial in <span class="ph" title="placeholder">under 5 minutes</span>. They qualify trade, finance and timeline, and they call back the ones who don't pick up — <span class="ph" title="placeholder">six attempts across nine days</span>, logged.</p>
+        <h3>Every buyer called</h3>
+        <p>Named closers, <span class="ph" title="placeholder: your real hours">8am–9pm, seven days</span>, first dial in minutes. They qualify trade, finance and timeline — then book the visit.</p>
       </article>
       <article class="card step reveal d3">
-        <span class="when">Ongoing</span>
+        <span class="when">On delivery</span>
         <p class="num" aria-hidden="true">4</p>
-        <h3>An appointment your team can walk into</h3>
-        <p>Name, time, stock number, trade details and finance status land in <span class="ph" title="placeholder: your CRM">your CRM</span> and on your board. Confirmed the morning of, rebooked once if they no-show. Recordings available to your GSM on request.</p>
+        <h3>You invoice, then we do</h3>
+        <p>Name, time, stock number and trade land in your CRM. We bill <span class="ph" title="placeholder">$399</span> only once that unit is delivered.</p>
       </article>
     </div>
   </div>
@@ -456,49 +472,42 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 <section id="numbers">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Your numbers, not ours</p>
-      <h2>Work out whether this is worth doing.</h2>
-      <p class="lede">Move the sliders to your own figures. If the bottom line doesn't clear your bar, don't book the call — we'd rather you found that out here than four months in.</p>
+      <p class="eyebrow">Your numbers</p>
+      <h2>Is it worth doing?</h2>
+      <p class="lede">Three sliders, your own figures. If the bottom line doesn't clear your bar, don't book the call.</p>
     </div>
 
     <div class="calc">
       <div class="calc-in reveal" id="calc">
         <div class="field">
           <label for="appts">Appointments booked per month <span class="val" id="appts-v">40</span></label>
-          <input type="range" id="appts" min="10" max="120" step="5" value="40" aria-describedby="appts-h">
-          <p class="hint" id="appts-h">What we'd aim for by month two. <span class="ph" title="placeholder: your real ramp">Month one is usually half</span> while the ads learn.</p>
+          <input type="range" id="appts" min="10" max="120" step="5" value="40">
         </div>
         <div class="field">
-          <label for="show">Of those, how many show <span class="val" id="show-v">70%</span></label>
-          <input type="range" id="show" min="30" max="95" step="1" value="70" aria-describedby="show-h">
-          <p class="hint" id="show-h">You are only invoiced for the ones that show, so this slider changes your cost as well as your gross.</p>
-        </div>
-        <div class="field">
-          <label for="close">Shown appointments you close <span class="val" id="close-v">25%</span></label>
-          <input type="range" id="close" min="5" max="60" step="1" value="25" aria-describedby="close-h">
-          <p class="hint" id="close-h">Your own floor closing rate on an appointment — not on a walk-in.</p>
+          <label for="close">Of those, how many you close <span class="val" id="close-v">18%</span></label>
+          <input type="range" id="close" min="5" max="50" step="1" value="18">
         </div>
         <div class="field">
           <label for="gross">Average gross per unit, front + back <span class="val" id="gross-v">$3,200</span></label>
-          <input type="range" id="gross" min="500" max="10000" step="100" value="3200" aria-describedby="gross-h">
-          <p class="hint" id="gross-h">Include F&amp;I. Be conservative — use last quarter's actual average.</p>
+          <input type="range" id="gross" min="300" max="10000" step="100" value="3200">
         </div>
-        <p class="note">
-          Cost assumes <span class="ph" title="placeholder: your real price">$3,500 setup, then $195 per appointment that shows</span>, over 12 months.
-          It ignores service-drive revenue, trade-ins acquired and repeat buyers — so treat it as the floor, not the forecast.
-        </p>
+        <div class="field">
+          <label for="media">Monthly media budget <span class="val" id="media-v">$3,500</span></label>
+          <input type="range" id="media" min="1000" max="12000" step="250" value="3500">
+        </div>
+        <p class="note">Our <span class="ph" title="placeholder: your real fee">$399</span> is charged per unit delivered. Media goes straight to the platforms on your card, at cost — but it’s your money, so it’s counted here.</p>
       </div>
 
       <div class="calc-out reveal d1">
-        <h3>Twelve-month picture</h3>
+        <h3>Twelve months</h3>
         <p class="big" id="out-net" aria-hidden="true">$0</p>
-        <p class="sub" id="out-sub">gross profit, net of everything you'd pay us</p>
+        <p class="sub" id="out-sub">gross profit, after what you'd pay us</p>
         <p class="sr-only" id="out-live" role="status" aria-live="polite"></p>
         <ul class="breakdown">
-          <li><span>Appointments that show</span><span id="out-shown">0</span></li>
           <li><span>Units delivered</span><span id="out-units">0</span></li>
           <li><span>Gross on those units</span><span id="out-gross">$0</span></li>
-          <li><span>What you'd pay us</span><span id="out-cost">$0</span></li>
+          <li><span>Our fee, at $<span class="ph" title="placeholder">399</span> a car</span><span id="out-fee">$0</span></li>
+          <li><span>Media spend, on your card</span><span id="out-media">$0</span></li>
           <li class="total"><span>Return per $1 spent</span><span id="out-roi">0×</span></li>
         </ul>
       </div>
@@ -511,29 +520,29 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Proof</p>
-      <h2>Three dealers, including the parts that went wrong.</h2>
-      <p class="lede">Named rooftops, real numbers, and what we'd do differently. Swap these for your own — one dealer who'll take a phone call from a prospect beats twenty anonymous five-star quotes.</p>
+      <h2>Three dealers, including what went wrong.</h2>
+      <p class="lede">Swap these for your own. One dealer who'll take a phone call beats twenty anonymous five-star quotes.</p>
     </div>
     <div class="cases">
       <article class="card case reveal">
         <span class="chip">Placeholder — swap for a real dealer</span>
-        <p class="meta"><span class="ph" title="placeholder: brand, rooftops, market">Domestic franchise · 1 rooftop · Alberta</span></p>
-        <p class="delta"><span class="from">9 appts/mo</span> <span aria-hidden="true">→</span> <span class="to">38 appts/mo</span></p>
-        <blockquote>"First month was rough — the ads pushed trucks we couldn't keep in stock. They caught it in week three and rebuilt around what was ageing on the lot."</blockquote>
-        <footer><span class="ph" title="placeholder: real name and title, with written permission">Name, General Sales Manager</span></footer>
+        <p class="meta"><span class="ph" title="placeholder: brand, rooftops, market">Domestic franchise · Alberta</span></p>
+        <p class="delta"><span class="from">6 units/mo</span> <span aria-hidden="true">→</span> <span class="to">13 units/mo</span></p>
+        <blockquote>"Month one was rough — they advertised trucks we couldn't restock. Caught it in week three and rebuilt around what was ageing."</blockquote>
+        <footer><span class="ph" title="placeholder: real name, with written permission">Name, General Sales Manager</span></footer>
       </article>
       <article class="card case reveal d1">
         <span class="chip">Placeholder — swap for a real dealer</span>
-        <p class="meta"><span class="ph" title="placeholder">Import franchise · 2 rooftops · Ontario</span></p>
+        <p class="meta"><span class="ph" title="placeholder">Import franchise · 2 rooftops</span></p>
         <p class="delta"><span class="from">52%</span> <span aria-hidden="true">→</span> <span class="to">78% show rate</span></p>
-        <blockquote>"Our BDC was calling leads the next morning. Theirs call in four minutes and confirm again the day of. That's the entire difference."</blockquote>
+        <blockquote>"Our BDC called leads the next morning. Theirs call in four minutes. That's the whole difference."</blockquote>
         <footer><span class="ph" title="placeholder">Name, Dealer Principal</span></footer>
       </article>
       <article class="card case reveal d2">
         <span class="chip">Placeholder — swap for a real dealer</span>
-        <p class="meta"><span class="ph" title="placeholder">Independent used · 1 rooftop · BC</span></p>
-        <p class="delta"><span class="from">14 units/mo</span> <span aria-hidden="true">→</span> <span class="to">23 units/mo</span></p>
-        <blockquote>"We paused them over the holidays and the board went quiet inside a fortnight. That told us more than any report did."</blockquote>
+        <p class="meta"><span class="ph" title="placeholder">Independent used · BC</span></p>
+        <p class="delta"><span class="from">$0 risk</span> <span aria-hidden="true">→</span> <span class="to">9 units in 60 days</span></p>
+        <blockquote>"We only agreed because there was nothing to lose. First invoice came after the third delivery."</blockquote>
         <footer><span class="ph" title="placeholder">Name, Owner</span></footer>
       </article>
     </div>
@@ -545,56 +554,47 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Pricing</p>
-      <h2>What it costs, on the page, before you talk to anyone.</h2>
-      <p class="lede">If a price is hidden, it's because it gets decided after someone guesses your budget. Ours isn't.</p>
+      <h2>One number, on the page.</h2>
     </div>
     <div class="price-grid">
       <div class="card price-card reveal">
         <div class="price-row">
-          <div>
-            <p class="what">Build &amp; launch</p>
-            <p class="why">Feed integration, photography and video on site, ad build, CRM mapping, closer training on your inventory. Weeks 1–2.</p>
-          </div>
-          <p class="amt"><span class="ph" title="placeholder: your real setup fee">$3,500</span></p>
+          <div><p class="what">Setup, build and launch</p><p class="why">Feed, photography, ad build, CRM mapping, closer training.</p></div>
+          <p class="amt zero">$0</p>
         </div>
         <div class="price-row">
-          <div>
-            <p class="what">Per appointment that shows</p>
-            <p class="why">Meets the qualification below. No-shows, duplicates and out-of-market enquiries aren't invoiced.</p>
-          </div>
-          <p class="amt"><span class="ph" title="placeholder: your real per-appointment price">$195</span></p>
+          <div><p class="what">Monthly retainer</p><p class="why">There isn't one. Appointments that don't sell cost you nothing.</p></div>
+          <p class="amt zero">$0</p>
         </div>
         <div class="price-row">
-          <div>
-            <p class="what">Ad spend</p>
-            <p class="why">Paid to the platforms on your own card, at cost. We never mark it up and you keep the ad accounts.</p>
-          </div>
+          <div><p class="what">Per car delivered</p><p class="why">Invoiced after delivery, on your own reporting. Terms <span class="ph" title="placeholder">net 15</span>.</p></div>
+          <p class="amt"><span class="ph" title="placeholder: your real fee">$399</span></p>
+        </div>
+        <div class="price-row">
+          <div><p class="what">Media spend</p><p class="why">Paid to the platforms on your card, at cost. Never marked up, and you keep the accounts.</p></div>
           <p class="amt"><span class="ph" title="placeholder: typical range">$2k–6k/mo</span></p>
         </div>
         <div class="price-row">
-          <div>
-            <p class="what">Minimum term</p>
-            <p class="why">Paid ads need <span class="ph" title="placeholder">90 days</span> to be judged fairly. After that it's <span class="ph" title="placeholder">30 days'</span> notice by email — no exit call, no clawback.</p>
-          </div>
-          <p class="amt"><span class="ph" title="placeholder">3 months</span></p>
+          <div><p class="what">Minimum term</p><p class="why"><span class="ph" title="placeholder: your real notice period">30 days' notice, by email.</span> If we're not selling cars, you're not paying — so we don't need to lock you in.</p></div>
+          <p class="amt zero">None</p>
         </div>
       </div>
 
       <div class="card price-card reveal d1">
         <h3 style="margin-bottom:18px">What we don't do</h3>
         <ul class="list no">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Sell the same enquiry to the dealer down the road. One dealer per brand, per territory — it's in the contract, not just on this page.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Count a form fill as a lead you owe us for. If they don't sit down with your team, it's free.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Use a voice bot or an AI SDR on your customers. Named people, on recorded lines, who say which dealership they're calling from.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Hold your accounts hostage. Ad accounts, pixel data, call recordings and the CRM records are yours, exportable, including the day you leave.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Mark up your media spend or take a platform rebate without telling you.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Sell the same buyer to the dealer down the road. One dealer per brand, per territory.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Put a voice bot on your customers. Named people, recorded lines.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Claim a deal your own floor traffic brought in. See the definition below.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Keep your accounts. Ads, pixels, recordings and CRM records are yours, including the day you leave.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Mark up media or pocket a platform rebate.</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ GUARANTEE ============ -->
+<!-- ============ DEFINITION ============ -->
 <section>
   <div class="wrap">
     <div class="card guarantee reveal">
@@ -602,15 +602,15 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
       </div>
       <div>
-        <h2>If <span class="ph" title="placeholder: a number you can actually hit">20 appointments don't show up in your first 60 days</span>, you don't pay us until they do.</h2>
-        <p class="lede" style="margin-top:16px">Not "we'll work harder". You keep the ad accounts, the creative and the call recordings either way. A guarantee is only worth something if "qualified" is defined before you sign — so here it is, and it's in the agreement word for word.</p>
+        <h2>No sale, no invoice. Here's what counts as a sale.</h2>
+        <p class="lede" style="margin-top:14px">"Pay per deal" is only worth something if the deal is defined before you sign. This wording is in the agreement.</p>
         <div class="definition">
-          <h4>An appointment counts when</h4>
+          <h4>We invoice when all four are true</h4>
           <ul class="list yes">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>It's set for a named person, a specific time, and a stock number on your lot.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>They're inside your market area and can legally buy — licence, age, no active bankruptcy disclosed.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>Budget, trade and finance route were discussed on a recorded call you can listen to.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>They physically arrive. If they don't, we rebook once and you're never invoiced for it.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>The buyer came from an appointment we booked, logged in your CRM with the source.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>A unit was delivered and the contract funded — not signed, funded.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>They weren't already in your CRM in the <span class="ph" title="placeholder: your real window">90 days</span> before we called.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>Unwound, cancelled or returned deals are credited back in full.</span></li>
           </ul>
         </div>
       </div>
@@ -623,36 +623,32 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Objections</p>
-      <h2>The questions you were going to ask on the call.</h2>
+      <h2>Questions you'd ask on the call.</h2>
     </div>
     <div class="faq reveal">
       <details>
-        <summary>We already have a BDC. What do you do that they don't?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Usually two things: speed and persistence. Most in-house desks get to a new enquiry in <span class="ph" title="placeholder: cite your source or delete">hours, not minutes</span>, and stop after two attempts because the phone is also ringing with service calls. We do <span class="ph" title="placeholder">six attempts across nine days</span> and confirm again on the morning of. If your BDC already hits those numbers, you don't need us — and we'll say so on the first call.</p></div>
+        <summary>How do you make money if nobody buys?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>We don't — which is why we turn down dealers whose gross or floor capacity won't carry it. We're funding the ads and the phone work up front, so we only take rooftops we expect to sell for.</p></div>
       </details>
       <details>
-        <summary>Who owns the leads, the ad accounts and the call recordings?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>You do, all of it. Ads run inside your business manager on your payment method. Every enquiry writes straight into your CRM as it arrives, not in a monthly export. Recordings are available to your managers on request and stay available for <span class="ph" title="placeholder">90 days</span> after you leave.</p></div>
+        <summary>We already have a BDC. What's different?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>Speed and persistence: first dial in minutes, <span class="ph" title="placeholder">six attempts across nine days</span>, and a confirmation call the morning of. If your desk already does that, you don't need us.</p></div>
       </details>
       <details>
-        <summary>Whose name do your closers use on the phone?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Yours, and they say they're calling from your dealership's sales team — because they are, on your behalf, from a number that rings back to you. We don't pretend to be on your floor, and if a customer asks where we're based, they get a straight answer.</p></div>
+        <summary>Who owns the leads and the ad accounts?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>You do. Ads run in your business manager on your card. Enquiries write into your CRM as they arrive. Recordings stay available for <span class="ph" title="placeholder">90 days</span> after you leave.</p></div>
       </details>
       <details>
-        <summary>What about compliance — CASL, TCPA, do-not-call?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>We only call people who submitted an enquiry on an ad for your inventory, which is express consent, recorded with the timestamp, the form and the IP. Numbers are scrubbed against the <span class="ph" title="placeholder: your real registration and process">national DNC list</span>, opt-outs are honoured within <span class="ph" title="placeholder">24 hours</span> and suppressed across every dealer we work with. Our <span class="ph" title="placeholder">registration number and consent log sample</span> are in the agreement. <span class="ph" title="placeholder">This isn't legal advice — have your own counsel read it.</span></p></div>
+        <summary>How do we agree which deals you get paid for?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>Your CRM decides, not us. Every appointment is logged with its source before the visit, and we invoice from your own delivered-and-funded report. Disputed? It comes off the invoice.</p></div>
       </details>
       <details>
-        <summary>What happens when we're out of stock on what you're advertising?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>The ads read your feed <span class="ph" title="placeholder: your real sync interval">every night</span>, so a sold unit stops being advertised the next morning. If a whole segment dries up, we move budget to what's ageing on your lot — that's a conversation with your GSM, not a change we make quietly.</p></div>
+        <summary>What about CASL, TCPA and do-not-call?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>We only call people who submitted an enquiry on an ad for your stock — express consent, logged with timestamp, form and IP. Numbers scrubbed against the <span class="ph" title="placeholder: your real registration and process">national DNC list</span>; opt-outs honoured within <span class="ph" title="placeholder">24 hours</span>. <span class="ph" title="placeholder">Not legal advice — have your counsel read the agreement.</span></p></div>
       </details>
       <details>
-        <summary>How fast do the first appointments land?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Ads go live in week <span class="ph" title="placeholder">2</span>, and the first appointments usually sit <span class="ph" title="placeholder">5–12 days</span> after that. Anyone promising appointments in week one is either buying an old lead list or counting form fills as appointments.</p></div>
-      </details>
-      <details>
-        <summary>Can we pause over a model-year changeover or a slow month?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Once per twelve months, for up to <span class="ph" title="placeholder">30 days</span>, with a week's notice — your territory stays reserved. Pausing longer than that releases it, and we'll tell you before it happens rather than after.</p></div>
+        <summary>How fast do the first cars move?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>Ads live in week <span class="ph" title="placeholder">2</span>, first appointments <span class="ph" title="placeholder">5–12 days</span> later, first deliveries usually inside <span class="ph" title="placeholder">30 days</span>. Anyone promising sales in week one is counting form fills.</p></div>
       </details>
     </div>
   </div>
@@ -664,11 +660,11 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
     <div class="reveal">
       <p class="eyebrow">Territory check</p>
       <h2>Five questions. We'll tell you if it's a no.</h2>
-      <p class="lede" style="margin-top:16px">This isn't a "book a demo" form that drops you into a nurture sequence. A person reads it and replies either way, including when the answer is that your territory is already taken.</p>
+      <p class="lede" style="margin-top:14px">A person reads it and replies either way — including when your territory is already taken.</p>
       <ul class="next">
-        <li><span class="n">1</span><div><strong>A reply from a person</strong><p>Usually within <span class="ph" title="placeholder: be honest">two hours</span>, seven days a week.</p></div></li>
-        <li><span class="n">2</span><div><strong>A straight yes or no</strong><p>If the territory's gone, or your gross per unit won't carry the cost, we say it in the email and point you at what would work instead.</p></div></li>
-        <li><span class="n">3</span><div><strong>If it's a yes, 20 minutes on the phone</strong><p>No deck. We go through your stock, your last <span class="ph" title="placeholder">90 days</span> of units and your floor capacity, and work out whether the numbers hold.</p></div></li>
+        <li><span class="n">1</span><span>A reply from a person, usually within <span class="ph" title="placeholder: be honest">two hours</span>.</span></li>
+        <li><span class="n">2</span><span>A straight yes or no, with the reason.</span></li>
+        <li><span class="n">3</span><span>If it's a yes: 20 minutes on your stock and your numbers. No deck.</span></li>
       </ul>
     </div>
 
@@ -690,12 +686,12 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
           <p class="err" id="email-e">That doesn't look like a work email address.</p>
         </div>
         <div class="f">
-          <label for="phone">Mobile <span class="opt">(so we can call, not just email)</span></label>
+          <label for="phone">Mobile</label>
           <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="phone-e">
           <p class="err" id="phone-e">Please enter a number we can reach you on.</p>
         </div>
         <div class="f">
-          <label for="units">Units you deliver in an average month</label>
+          <label for="units">Units delivered in an average month</label>
           <select id="units" name="units" required aria-describedby="units-e">
             <option value="">Choose one</option>
             <option>Under 20</option>
@@ -703,11 +699,11 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
             <option>50 – 120</option>
             <option>Over 120</option>
           </select>
-          <p class="err" id="units-e">Pick the closest band — it decides whether this works for you.</p>
+          <p class="err" id="units-e">Pick the closest band — it decides whether this works.</p>
         </div>
         <div class="f">
-          <label for="ctx">What's the bottleneck right now? <span class="opt">(optional)</span></label>
-          <textarea id="ctx" name="ctx" placeholder="e.g. Plenty of website leads, nobody chasing them after 6pm. Used inventory is ageing past 60 days."></textarea>
+          <label for="ctx">Bottleneck right now? <span class="opt">(optional)</span></label>
+          <textarea id="ctx" name="ctx" placeholder="e.g. Plenty of leads, nobody chasing them after 6pm."></textarea>
         </div>
         <div class="hp" aria-hidden="true">
           <label for="dealer-fax">Leave this empty</label>
@@ -715,7 +711,7 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
         </div>
         <div class="consent">
           <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-e">
-          <label for="consent">I'm happy to be contacted about this enquiry by email or phone. One thread, no list, and you can end it with one word.</label>
+          <label for="consent">Happy to be contacted about this enquiry. One thread, no list.</label>
         </div>
         <p class="err" id="consent-e" style="margin:-10px 0 16px">We need this to be able to reply.</p>
         <button class="btn btn-primary btn-lg" type="submit" id="submit" style="width:100%">
@@ -723,7 +719,7 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        <p class="note" style="margin-top:16px">We store what you send here and nothing else. No tracking pixels on this page, no data sold, ever. <a href="#" style="color:var(--accent)">Privacy policy</a>.</p>
+        <p class="note" style="margin-top:14px">No tracking pixels on this page, no data sold. <a href="#" style="color:var(--accent)">Privacy policy</a>.</p>
       </form>
     </div>
   </div>
@@ -734,8 +730,8 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="brand" href="#top" style="margin-bottom:14px">
-          <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#060A14" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></span>
+        <a class="brand" href="#top" aria-label="CLOSER — home">
+          <span class="glyph" aria-hidden="true"><span>C</span></span>
           <span class="name">Clos<i>er</i></span>
         </a>
         <p><span class="ph" title="placeholder: real registered address">Unit 4, 120 Example Ave, Calgary, AB T2P 1A1</span><br>
@@ -761,15 +757,15 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
       </div>
     </div>
     <div class="legal">
-      <p>© <span id="year">2026</span> <span class="ph" title="placeholder: real legal entity">CLOSER Media Ltd</span>. Every figure on this page is a placeholder until replaced.</p>
+      <p>© <span id="year">2026</span> <span class="ph" title="placeholder: real legal entity">CLOSER Media Ltd</span>. Figures are placeholders until replaced.</p>
       <p>One dealer per brand, per territory.</p>
     </div>
   </div>
 </footer>
 
 <div class="sticky-cta" id="sticky">
-  <p><strong><span class="ph" title="placeholder">2</span> territories open</strong> in <span class="ph" title="placeholder">Alberta</span></p>
-  <a class="btn btn-primary btn-sm" href="#apply">Check mine</a>
+  <p><strong class="k">$<span class="ph" title="placeholder">399</span> per car sold.</strong> Nothing before that.</p>
+  <a class="btn btn-primary btn-sm" href="#apply">Check territory</a>
 </div>
 
 <script>
@@ -777,13 +773,11 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- REPLACE: keep these two in step with the pricing section ---------- */
-  var CALC_SETUP = 3500;      // one-off build & launch fee
-  var CALC_PER_APPT = 195;    // charged per appointment that shows
+  /* ---------- REPLACE: keep in step with the pricing section ---------- */
+  var DEAL_FEE = 399;         // charged per unit delivered
   var CURRENCY = 'en-CA';
   var SYMBOL = '$';
 
-  /* ---------- template banner ---------- */
   var banner = document.getElementById('tpl-banner');
   var dismiss = document.getElementById('tpl-dismiss');
   if (dismiss && banner) dismiss.addEventListener('click', function () { banner.remove(); });
@@ -791,17 +785,60 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
+  /* ---------- reactive background: pointer parallax + scroll drift ---------- */
+  var bg = document.getElementById('bg');
+  if (bg && !reduced) {
+    var tx = 0, ty = 0, cx = 0, cy = 0, sx = 0, sy = 0, raf = 0;
+    var spot = bg.querySelector('.spot');
+    var px = 50, py = 26, cpx = 50, cpy = 26;
+
+    function frame() {
+      raf = 0;
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      cpx += (px - cpx) * 0.12;
+      cpy += (py - cpy) * 0.12;
+      sy += (sx - sy) * 0.12;
+      bg.style.setProperty('--mx', cx.toFixed(3));
+      bg.style.setProperty('--my', cy.toFixed(3));
+      bg.style.setProperty('--sy', sy.toFixed(3));
+      if (spot) {
+        spot.style.setProperty('--x', cpx.toFixed(2) + '%');
+        spot.style.setProperty('--y', cpy.toFixed(2) + '%');
+      }
+      if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001 ||
+          Math.abs(px - cpx) > 0.05 || Math.abs(py - cpy) > 0.05 ||
+          Math.abs(sx - sy) > 0.001) queue();
+    }
+    function queue() { if (!raf) raf = requestAnimationFrame(frame); }
+
+    window.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      tx = (e.clientX / window.innerWidth) * 2 - 1;   // -1 .. 1
+      ty = (e.clientY / window.innerHeight) * 2 - 1;
+      px = (e.clientX / window.innerWidth) * 100;
+      py = (e.clientY / window.innerHeight) * 100;
+      queue();
+    }, { passive: true });
+
+    window.addEventListener('scroll', function () {
+      sx = (window.scrollY || window.pageYOffset) / Math.max(window.innerHeight, 1);
+      queue();
+    }, { passive: true });
+    queue();
+  }
+
   /* ---------- nav state + sticky mobile CTA ---------- */
   var nav = document.getElementById('nav');
   var sticky = document.getElementById('sticky');
   var apply = document.getElementById('apply');
   var ticking = false;
   function onScroll() {
-    var sy = window.scrollY || window.pageYOffset;
-    if (nav) nav.classList.toggle('is-stuck', sy > 8);
+    var s = window.scrollY || window.pageYOffset;
+    if (nav) nav.classList.toggle('is-stuck', s > 8);
     if (sticky) {
       var formTop = apply ? apply.getBoundingClientRect().top : Infinity;
-      sticky.classList.toggle('show', sy > 620 && formTop > window.innerHeight * 0.6);
+      sticky.classList.toggle('show', s > 620 && formTop > window.innerHeight * 0.6);
     }
     ticking = false;
   }
@@ -843,7 +880,7 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   function runCount(el) {
     var target = parseFloat(el.getAttribute('data-count'));
     var suffix = el.getAttribute('data-suffix') || '';
-    if (reduced) { el.textContent = fmtInt(target) + suffix; return; }
+    if (reduced || !target) { el.textContent = fmtInt(target) + suffix; return; }
     var start = performance.now(), dur = 1100;
     (function tick(now) {
       var p = Math.min((now - start) / dur, 1);
@@ -862,12 +899,12 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
     counters.forEach(runCount);
   }
 
-  /* ---------- appointment economics calculator ---------- */
+  /* ---------- pay-per-deal calculator ---------- */
   var appts = document.getElementById('appts');
-  var show = document.getElementById('show');
   var close = document.getElementById('close');
   var gross = document.getElementById('gross');
-  var sliders = [appts, show, close, gross];
+  var media = document.getElementById('media');
+  var sliders = [appts, close, gross, media];
 
   function paintRange(el) {
     if (!el) return;
@@ -877,33 +914,29 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 
   function recalc() {
     if (sliders.some(function (s) { return !s; })) return;
-    var perMonth = +appts.value;
-    var showRate = +show.value / 100;
-    var closeRate = +close.value / 100;
-    var grossUnit = +gross.value;
-
-    var shownYear = perMonth * 12 * showRate;
-    var units = shownYear * closeRate;
-    var grossTotal = units * grossUnit;
-    var cost = CALC_SETUP + shownYear * CALC_PER_APPT;
+    var units = (+appts.value) * 12 * (+close.value / 100);
+    var grossTotal = units * (+gross.value);
+    var fee = units * DEAL_FEE;
+    var mediaTotal = (+media.value) * 12;
+    var cost = fee + mediaTotal;
     var net = grossTotal - cost;
     var roi = cost > 0 ? grossTotal / cost : 0;
 
     document.getElementById('appts-v').textContent = appts.value;
-    document.getElementById('show-v').textContent = show.value + '%';
     document.getElementById('close-v').textContent = close.value + '%';
-    document.getElementById('gross-v').textContent = money(grossUnit);
+    document.getElementById('gross-v').textContent = money(+gross.value);
+    document.getElementById('media-v').textContent = money(+media.value);
 
     document.getElementById('out-net').textContent = money(net);
-    document.getElementById('out-shown').textContent = fmtInt(shownYear);
     document.getElementById('out-units').textContent = fmtInt(units);
     document.getElementById('out-gross').textContent = money(grossTotal);
-    document.getElementById('out-cost').textContent = money(cost);
+    document.getElementById('out-fee').textContent = money(fee);
+    document.getElementById('out-media').textContent = money(mediaTotal);
     document.getElementById('out-roi').textContent = roi.toFixed(1) + '×';
 
     document.getElementById('out-sub').textContent = net <= 0
-      ? 'you would lose money at these numbers — don’t book the call'
-      : 'gross profit, net of everything you would pay us';
+      ? 'you would be underwater at these numbers — don’t book the call'
+      : 'gross profit, after our fee and your media';
 
     document.getElementById('out-live').textContent =
       money(net) + ' net over twelve months, from ' + fmtInt(units) +
@@ -940,7 +973,7 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
         ok = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v);
         if (ok && freeMail.test(v)) { ok = false; msg = 'Please use your dealership address — it tells us which rooftop you are.'; }
       } else if (input.id === 'phone') {
-        ok = (v.replace(/\D/g, '').length >= 10);
+        ok = v.replace(/\D/g, '').length >= 10;
       }
 
       var err = errorEl(input);
