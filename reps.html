@@ -532,23 +532,21 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
       <div class="calc-in reveal" id="calc">
         <div class="field">
           <label for="deals">Deals in a month <span class="val" id="deals-v">8</span></label>
-          <input type="range" id="deals" min="1" max="30" step="1" value="8">
+          <input type="range" id="deals" min="1" max="45" step="1" value="8">
         </div>
         <p class="note" style="margin-top:22px">
-          That's it — $150 × deals. No tiers to unlock, no split with anyone, no deductions at source.
-          Move the slider to whatever you think you'd do; it's arithmetic, not a promise.
-          What you actually make comes down to how many cars you post and how fast you answer.
+          No split with anyone, no deductions at source. Move the slider to whatever you think
+          you'd do — it's arithmetic, not a promise. What you actually make comes down to how many
+          cars you post and how fast you answer.
         </p>
-        <p class="note" style="margin-top:14px">Performance bonuses sit on top of this number. Your manager goes through them on the call.</p>
       </div>
 
       <div class="calc-out reveal d1">
         <h3>At that rate</h3>
         <p class="big" id="out-month" aria-hidden="true">$0</p>
-        <p class="sub">a month, before tax</p>
+        <p class="sub">a month, before tax (including performance bonuses)</p>
         <p class="sr-only" id="out-live" role="status" aria-live="polite"></p>
         <ul class="breakdown">
-          <li><span>Per deal</span><span>$150</span></li>
           <li><span>Deals a month</span><span id="out-deals">0</span></li>
           <li class="total"><span>Over twelve months</span><span id="out-year">$0</span></li>
         </ul>
@@ -873,9 +871,17 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   window.addEventListener('load', sweep);
   sweep();
 
-  /* ---------- rep pay: $150 x deals ---------- */
-  var DEAL_PAY = 150;
+  /* ---------- rep pay ---------- */
+  var DEAL_PAY = 150;        // per deal
+  var BONUS_FROM = 12;       // deals after this many, in the same month...
+  var BONUS_EXTRA = 75;      // ...are worth this much more. Resets every month.
   var deals = document.getElementById('deals');
+
+  function monthlyPay(n) {
+    var base = Math.min(n, BONUS_FROM) * DEAL_PAY;
+    var bonused = Math.max(0, n - BONUS_FROM) * (DEAL_PAY + BONUS_EXTRA);
+    return base + bonused;
+  }
 
   function paintRange(el) {
     if (!el) return;
@@ -886,14 +892,15 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   function recalc() {
     if (!deals) return;
     var n = +deals.value;
-    var month = n * DEAL_PAY;
+    var month = monthlyPay(n);
 
     document.getElementById('deals-v').textContent = n;
     document.getElementById('out-month').textContent = money(month);
     document.getElementById('out-deals').textContent = n;
     document.getElementById('out-year').textContent = money(month * 12);
     document.getElementById('out-live').textContent =
-      n + ' deals a month is ' + money(month) + ' a month, or ' + money(month * 12) + ' over twelve months, before bonuses and before tax.';
+      n + ' deals a month is ' + money(month) + ' a month, or ' + money(month * 12) +
+      ' over twelve months, including performance bonuses, before tax.';
     paintRange(deals);
   }
 
