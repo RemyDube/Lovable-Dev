@@ -3,21 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CLOSER — You don't pay until a deal closes</title>
-<meta name="description" content="We market your inventory and call every buyer until they're booked in. You pay $399 when a car is delivered. Nothing before that.">
+<title>CLOSER — Remote sales rep, $150 a deal</title>
+<meta name="description" content="Post dealer inventory on Facebook Marketplace and your socials, talk to the people who message, book them in. $150 every time one of your buyers drives away, plus performance bonuses. Remote, anywhere in Canada.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060A14">
 
-<!-- og:image is the one the live site is missing: without it every share renders a blank card. 1200x630. -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://REPLACE-ME.com/">
-<meta property="og:title" content="CLOSER — You don't pay until a deal closes">
-<meta property="og:description" content="We market your inventory and call every buyer until they're booked in. $399 per car delivered. Nothing before that.">
-<meta property="og:image" content="https://REPLACE-ME.com/og.png">
+<meta property="og:url" content="https://REPLACE-ME.com/reps">
+<meta property="og:title" content="CLOSER — Remote sales rep, $150 a deal">
+<meta property="og:description" content="Post cars, book buyers, get paid $150 a deal plus bonuses. Your own hours, anywhere in Canada.">
+<meta property="og:image" content="https://REPLACE-ME.com/og-reps.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CLOSER — You don't pay until a deal closes">
-<meta name="twitter:description" content="We market your inventory and call every buyer until they're booked in. $399 per car delivered.">
-<link rel="canonical" href="https://REPLACE-ME.com/">
+<meta name="twitter:title" content="CLOSER — Remote sales rep, $150 a deal">
+<meta name="twitter:description" content="Post cars, book buyers, get paid $150 a deal plus bonuses. Your own hours, anywhere in Canada.">
+<link rel="canonical" href="https://REPLACE-ME.com/reps">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,21 +25,17 @@
 
 <!--
   ============================================================================
-  REPLACE BEFORE PUBLISHING  —  every dotted value is a placeholder
-  ----------------------------------------------------------------------------
-   1.  Legal entity, address, registration number, phone         (footer)
-   2.  og:url / og:image / canonical above   (blank share cards today)
-   3.  Reply time, deal counts, show rate                  (hero + stats)
-   4.  Territory availability line — delete it if it isn't true
-   5.  $399 per closed deal: also set DEAL_FEE in the script
-   6.  Case studies: real rooftops, real numbers, written permission
-   7.  "Closed deal" definition — have your lawyer read it
-   8.  Compliance answers in the FAQ (CASL / TCPA / DNC)
-   9.  Form endpoint: set data-endpoint on <form id="apply-form">
-   10. Privacy + terms URLs, then delete #tpl-banner and the .ph rule
+  RECRUITING PAGE — for sales reps. Four things to fill in before it goes live,
+  each marked on the page with a dotted underline:
+    1.  Contact email (hero note + footer)
+    2.  Pay cycle wording in the FAQ ("twice a month")
+    3.  Legal entity name and address in the footer
+    4.  Form endpoint: set data-endpoint on <form id="apply-form">
+  Nothing else on this page is a placeholder. No invented statistics, no
+  testimonials, no earnings promises — the only numbers are $150 and $0.
+  Manager compensation is deliberately absent.
   ============================================================================
 -->
-
 <style>
 /* ---------- tokens (from the project's oklch palette) ---------- */
 :root{
@@ -340,6 +335,32 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media print{.nav,.sticky-cta,#tpl-banner,.bg{display:none}}
 </style>
+<style>
+/* ---------- reps page additions ---------- */
+.checks{list-style:none;margin:0;padding:6px 18px}
+.checks li{display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.checks li:last-child{border-bottom:0}
+.checks svg{width:18px;height:18px;margin-top:3px;color:var(--accent)}
+.tools{display:grid;gap:14px}
+@media (min-width:700px){.tools{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.tools{grid-template-columns:repeat(3,1fr)}}
+.tool{padding:24px;transition:transform .18s ease,border-color .18s ease}
+.tool:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.tool .ico{width:40px;height:40px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:15px}
+.tool .ico svg{width:20px;height:20px}
+.tool h3{margin-bottom:8px}
+.tool p{font-size:.92rem;color:var(--muted)}
+.pay{display:grid;gap:18px;align-items:stretch}
+@media (min-width:940px){.pay{grid-template-columns:1fr 1fr}}
+.two-col{display:grid;gap:16px}
+@media (min-width:860px){.two-col{grid-template-columns:1fr 1fr}}
+.two-col .card{padding:clamp(22px,3vw,30px)}
+.two-col h3{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.two-col h3 .mark{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex:none}
+.two-col h3 .mark svg{width:15px;height:15px}
+.mark.good{background:var(--accent-soft);color:var(--accent)}
+.mark.bad{background:var(--flag-soft);color:var(--flag)}
+</style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
@@ -356,13 +377,6 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   <span class="spot"></span>
 </div>
 
-<div id="tpl-banner">
-  <div class="wrap">
-    <p><b>Template preview.</b> Every <span class="ph" title="placeholder">dotted value</span> is a placeholder.</p>
-    <button type="button" id="tpl-dismiss">Hide</button>
-  </div>
-</div>
-
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="CLOSER — home">
@@ -370,13 +384,13 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
       <span class="name">Clos<i>er</i></span>
     </a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#how">How it works</a>
-      <a href="#numbers">Your numbers</a>
-      <a href="#proof">Proof</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#job">The job</a>
+      <a href="#kit">What you get</a>
+      <a href="#pay">Pay</a>
+      <a href="#fit">Is it for you</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="#apply">Check my territory</a>
+    <a class="btn btn-primary btn-sm" href="#apply">Apply</a>
   </div>
 </header>
 
@@ -387,232 +401,187 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Inventory marketing + closers</p>
-      <h1>You don't pay us<br><span class="hl">until the car is sold.</span></h1>
+      <p class="eyebrow">Remote sales · Canada · self-employed</p>
+      <h1>Post cars. Book buyers.<br><span class="hl">$150 a deal.</span></h1>
       <p class="lede">
-        We market your stock and call every buyer until they're booked in.
-        <strong class="k"><span class="ph" title="placeholder: your real fee">$399</span> when a unit is delivered.</strong>
-        Nothing before that — no retainer, no setup, no per-lead fee.
+        You list our dealers' stock on Facebook Marketplace and your socials, talk to whoever messages,
+        and book them in. The dealership closes it — you get <strong class="k">$150 every time one of
+        your buyers drives away</strong>, plus performance bonuses.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#apply">
-          Check my territory
+          Apply — two minutes
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-ghost btn-lg" href="#how">How it works</a>
+        <a class="btn btn-ghost btn-lg" href="#job">What the job actually is</a>
       </div>
       <p class="hero-note">
         <span class="dot" aria-hidden="true"></span>
-        <span>One dealer per brand, per territory · <span class="ph" title="placeholder: keep only if true">2 open in Alberta</span></span>
+        <span>Your own hours, from anywhere in Canada. No hourly, no cap, nothing to buy.</span>
       </p>
     </div>
 
-    <div class="card reveal d1" role="group" aria-labelledby="board-title">
-      <div class="panel-head">
-        <h2 id="board-title">Last 30 days</h2>
-        <span class="tag"><span class="ph" title="placeholder: real count">17 delivered</span></span>
-      </div>
-      <ul class="board">
-        <li><span><span class="who">Domestic franchise</span><br><span class="what"><span class="ph" title="placeholder">38 appointments · 7 sold</span></span></span><span class="tag">Invoiced 7</span></li>
-        <li><span><span class="who">Import franchise · 2 rooftops</span><br><span class="what"><span class="ph" title="placeholder">61 appointments · 8 sold</span></span></span><span class="tag">Invoiced 8</span></li>
-        <li><span><span class="who">Independent used</span><br><span class="what"><span class="ph" title="placeholder">29 appointments · 2 sold</span></span></span><span class="tag warm">Invoiced 2</span></li>
+    <div class="card reveal d1" role="group" aria-labelledby="day1">
+      <div class="panel-head"><h2 id="day1">What you get on day one</h2></div>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>A business phone number — buyers never get your personal one</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>A CRM login, with every lead, thread and follow-up in one place</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>A shared Drive of photos and descriptions, ready to copy and paste</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>Facebook accounts set up for you, so you're not posting as yourself</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>A manager you can actually reach when a buyer asks something you can't answer</span></li>
       </ul>
-      <div class="panel-foot">Rooftops anonymised until a dealer signs off on being named. Appointments that didn't sell cost them nothing.</div>
+      <div class="panel-foot">No fees, no kit to buy, no course. If anyone ever asks you for money to work here, it isn't us.</div>
     </div>
   </div>
 </section>
 
-<!-- ============ STATS ============ -->
-<section class="strip" aria-label="Key numbers" style="padding-block:0">
+<!-- ============ FACTS ============ -->
+<section class="strip" aria-label="The basics" style="padding-block:0">
   <div class="wrap">
-    <div class="stat"><span class="n">$<span data-count="399" data-suffix="">0</span></span><span class="l">Per car delivered. That's the whole invoice.</span></div>
-    <div class="stat"><span class="n">$<span data-count="0" data-suffix="">0</span></span><span class="l">Setup, retainer and per-lead fees</span></div>
-    <div class="stat"><span class="n" data-count="74" data-suffix="%">0%</span><span class="l">Appointment show rate <span class="ph" title="placeholder">(74%)</span></span></div>
-    <div class="stat"><span class="n" data-count="4" data-suffix=" min">0 min</span><span class="l">Median enquiry to first call <span class="ph" title="placeholder">(4 min)</span></span></div>
+    <div class="stat"><span class="n">$<span data-count="150" data-suffix="">0</span></span><span class="l">Per deal, once your buyer buys</span></div>
+    <div class="stat"><span class="n">+ Bonus</span><span class="l">Performance bonuses on top</span></div>
+    <div class="stat"><span class="n">Remote</span><span class="l">Anywhere in Canada, from home</span></div>
+    <div class="stat"><span class="n">$<span data-count="0" data-suffix="">0</span></span><span class="l">To start. There's nothing to buy.</span></div>
   </div>
 </section>
 
-<!-- ============ HOW ============ -->
-<section id="how">
+<!-- ============ THE JOB ============ -->
+<section id="job">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">How it runs</p>
-      <h2>Four steps. No black box.</h2>
+      <p class="eyebrow">The job</p>
+      <h2>Four things, all day.</h2>
     </div>
     <div class="steps">
       <article class="card step reveal">
-        <span class="when">Day 0</span>
         <p class="num" aria-hidden="true">1</p>
-        <h3>Territory check</h3>
-        <p>20 minutes on stock, gross and floor capacity. If the territory's taken or the numbers don't work, we say so on that call.</p>
+        <h3>Post the cars</h3>
+        <p>Photos and descriptions are waiting in a shared Drive. You copy, paste and post them to Facebook Marketplace and your own socials.</p>
       </article>
       <article class="card step reveal d1">
-        <span class="when">Week 1</span>
         <p class="num" aria-hidden="true">2</p>
-        <h3>Your inventory, live</h3>
-        <p>We pull your feed, shoot the units that move, and build ads around stock numbers and payments. You approve everything before it runs.</p>
+        <h3>Answer fast</h3>
+        <p>A good listing gets messages within minutes. You reply from your business number and the CRM — whoever answers first usually gets the buyer.</p>
       </article>
       <article class="card step reveal d2">
-        <span class="when">Week 2+</span>
         <p class="num" aria-hidden="true">3</p>
-        <h3>Every buyer called</h3>
-        <p>Named closers, <span class="ph" title="placeholder: your real hours">8am–9pm, seven days</span>, first dial in minutes. They qualify trade, finance and timeline — then book the visit.</p>
+        <h3>Book the appointment</h3>
+        <p>What are they after, what are they trading, when can they come in. You put the appointment in the CRM with those details attached.</p>
       </article>
       <article class="card step reveal d3">
-        <span class="when">On delivery</span>
         <p class="num" aria-hidden="true">4</p>
-        <h3>You invoice, then we do</h3>
-        <p>Name, time, stock number and trade land in your CRM. We bill <span class="ph" title="placeholder">$399</span> only once that unit is delivered.</p>
+        <h3>Get paid</h3>
+        <p>They walk in, the dealership sells them the car, you invoice $150. Bonuses on top when you're producing.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ CALCULATOR ============ -->
-<section id="numbers">
+<!-- ============ WHAT YOU GET ============ -->
+<section id="kit">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Your numbers</p>
-      <h2>Is it worth doing?</h2>
-      <p class="lede">Three sliders, your own figures. If the bottom line doesn't clear your bar, don't book the call.</p>
+      <p class="eyebrow">What we give you</p>
+      <h2>You bring the hustle. The rest is handed to you.</h2>
+    </div>
+    <div class="tools">
+      <article class="card tool reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <h3>A business phone number</h3>
+        <p>Calls and texts come to you without handing out your personal number. When you're off, you're off.</p>
+      </article>
+      <article class="card tool reveal d1">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg></span>
+        <h3>The CRM</h3>
+        <p>Every lead, conversation and follow-up in one place. It tells you who to chase today, so nothing quietly dies in your inbox.</p>
+      </article>
+      <article class="card tool reveal d2">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-6 6"/></svg></span>
+        <h3>Photos and copy, ready to go</h3>
+        <p>A shared Drive for each dealer's stock. You're not writing ads from scratch or chasing anyone for pictures.</p>
+      </article>
+      <article class="card tool reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+        <h3>Facebook accounts</h3>
+        <p>Set up for you, with the posting side made as quick as we can make it. Your personal profile stays yours.</p>
+      </article>
+      <article class="card tool reveal d1">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+        <h3>Your own hours</h3>
+        <p>Work from home, from anywhere in Canada. Nobody clocks you in — you decide when you're on.</p>
+      </article>
+      <article class="card tool reveal d2">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></span>
+        <h3>A manager on the other end</h3>
+        <p>Someone to call when a buyer asks something you can't answer, and to go through your threads when they're not converting.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAY ============ -->
+<section id="pay">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Pay</p>
+      <h2>$150 a deal, plus bonuses.</h2>
+      <p class="lede">You're paid when the buyer actually buys — at the dealer you booked them into, or another one of ours. There's no hourly and no ceiling: that's the trade for picking your own hours.</p>
     </div>
 
-    <div class="calc">
+    <div class="pay">
       <div class="calc-in reveal" id="calc">
         <div class="field">
-          <label for="appts">Appointments booked per month <span class="val" id="appts-v">40</span></label>
-          <input type="range" id="appts" min="10" max="120" step="5" value="40">
+          <label for="deals">Deals in a month <span class="val" id="deals-v">8</span></label>
+          <input type="range" id="deals" min="1" max="30" step="1" value="8">
         </div>
-        <div class="field">
-          <label for="close">Of those, how many you close <span class="val" id="close-v">18%</span></label>
-          <input type="range" id="close" min="5" max="50" step="1" value="18">
-        </div>
-        <div class="field">
-          <label for="gross">Average gross per unit, front + back <span class="val" id="gross-v">$3,200</span></label>
-          <input type="range" id="gross" min="300" max="10000" step="100" value="3200">
-        </div>
-        <div class="field">
-          <label for="media">Monthly media budget <span class="val" id="media-v">$3,500</span></label>
-          <input type="range" id="media" min="1000" max="12000" step="250" value="3500">
-        </div>
-        <p class="note">Our <span class="ph" title="placeholder: your real fee">$399</span> is charged per unit delivered. Media goes straight to the platforms on your card, at cost — but it’s your money, so it’s counted here.</p>
+        <p class="note" style="margin-top:22px">
+          That's it — $150 × deals. No tiers to unlock, no split with anyone, no deductions at source.
+          Move the slider to whatever you think you'd do; it's arithmetic, not a promise.
+          What you actually make comes down to how many cars you post and how fast you answer.
+        </p>
+        <p class="note" style="margin-top:14px">Performance bonuses sit on top of this number. Your manager goes through them on the call.</p>
       </div>
 
       <div class="calc-out reveal d1">
-        <h3>Twelve months</h3>
-        <p class="big" id="out-net" aria-hidden="true">$0</p>
-        <p class="sub" id="out-sub">gross profit, after what you'd pay us</p>
+        <h3>At that rate</h3>
+        <p class="big" id="out-month" aria-hidden="true">$0</p>
+        <p class="sub">a month, before tax</p>
         <p class="sr-only" id="out-live" role="status" aria-live="polite"></p>
         <ul class="breakdown">
-          <li><span>Units delivered</span><span id="out-units">0</span></li>
-          <li><span>Gross on those units</span><span id="out-gross">$0</span></li>
-          <li><span>Our fee, at $<span class="ph" title="placeholder">399</span> a car</span><span id="out-fee">$0</span></li>
-          <li><span>Media spend, on your card</span><span id="out-media">$0</span></li>
-          <li class="total"><span>Return per $1 spent</span><span id="out-roi">0×</span></li>
+          <li><span>Per deal</span><span>$150</span></li>
+          <li><span>Deals a month</span><span id="out-deals">0</span></li>
+          <li class="total"><span>Over twelve months</span><span id="out-year">$0</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROOF ============ -->
-<section id="proof">
+<!-- ============ FIT ============ -->
+<section id="fit">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Proof</p>
-      <h2>Three dealers, including what went wrong.</h2>
-      <p class="lede">Swap these for your own. One dealer who'll take a phone call beats twenty anonymous five-star quotes.</p>
+      <p class="eyebrow">Straight talk</p>
+      <h2>It suits some people and not others.</h2>
     </div>
-    <div class="cases">
-      <article class="card case reveal">
-        <span class="chip">Placeholder — swap for a real dealer</span>
-        <p class="meta"><span class="ph" title="placeholder: brand, rooftops, market">Domestic franchise · Alberta</span></p>
-        <p class="delta"><span class="from">6 units/mo</span> <span aria-hidden="true">→</span> <span class="to">13 units/mo</span></p>
-        <blockquote>"Month one was rough — they advertised trucks we couldn't restock. Caught it in week three and rebuilt around what was ageing."</blockquote>
-        <footer><span class="ph" title="placeholder: real name, with written permission">Name, General Sales Manager</span></footer>
-      </article>
-      <article class="card case reveal d1">
-        <span class="chip">Placeholder — swap for a real dealer</span>
-        <p class="meta"><span class="ph" title="placeholder">Import franchise · 2 rooftops</span></p>
-        <p class="delta"><span class="from">52%</span> <span aria-hidden="true">→</span> <span class="to">78% show rate</span></p>
-        <blockquote>"Our BDC called leads the next morning. Theirs call in four minutes. That's the whole difference."</blockquote>
-        <footer><span class="ph" title="placeholder">Name, Dealer Principal</span></footer>
-      </article>
-      <article class="card case reveal d2">
-        <span class="chip">Placeholder — swap for a real dealer</span>
-        <p class="meta"><span class="ph" title="placeholder">Independent used · BC</span></p>
-        <p class="delta"><span class="from">$0 risk</span> <span aria-hidden="true">→</span> <span class="to">9 units in 60 days</span></p>
-        <blockquote>"We only agreed because there was nothing to lose. First invoice came after the third delivery."</blockquote>
-        <footer><span class="ph" title="placeholder">Name, Owner</span></footer>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section id="pricing">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Pricing</p>
-      <h2>One number, on the page.</h2>
-    </div>
-    <div class="price-grid">
-      <div class="card price-card reveal">
-        <div class="price-row">
-          <div><p class="what">Setup, build and launch</p><p class="why">Feed, photography, ad build, CRM mapping, closer training.</p></div>
-          <p class="amt zero">$0</p>
-        </div>
-        <div class="price-row">
-          <div><p class="what">Monthly retainer</p><p class="why">There isn't one. Appointments that don't sell cost you nothing.</p></div>
-          <p class="amt zero">$0</p>
-        </div>
-        <div class="price-row">
-          <div><p class="what">Per car delivered</p><p class="why">Invoiced after delivery, on your own reporting. Terms <span class="ph" title="placeholder">net 15</span>.</p></div>
-          <p class="amt"><span class="ph" title="placeholder: your real fee">$399</span></p>
-        </div>
-        <div class="price-row">
-          <div><p class="what">Media spend</p><p class="why">Paid to the platforms on your card, at cost. Never marked up, and you keep the accounts.</p></div>
-          <p class="amt"><span class="ph" title="placeholder: typical range">$2k–6k/mo</span></p>
-        </div>
-        <div class="price-row">
-          <div><p class="what">Minimum term</p><p class="why"><span class="ph" title="placeholder: your real notice period">30 days' notice, by email.</span> If we're not selling cars, you're not paying — so we don't need to lock you in.</p></div>
-          <p class="amt zero">None</p>
-        </div>
+    <div class="two-col">
+      <div class="card reveal">
+        <h3><span class="mark good" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></span>Apply if</h3>
+        <ul class="list yes">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>You'd rather message and call people all day than stand on a showroom floor.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>You answer fast, and you don't mind that buyers message in the evening.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>You want what you earn tied to what you do, not to hours logged.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>You can keep yourself going without someone standing over you.</span></li>
+        </ul>
       </div>
-
-      <div class="card price-card reveal d1">
-        <h3 style="margin-bottom:18px">What we don't do</h3>
+      <div class="card reveal d1">
+        <h3><span class="mark bad" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Don't apply if</h3>
         <ul class="list no">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Sell the same buyer to the dealer down the road. One dealer per brand, per territory.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Put a voice bot on your customers. Named people, recorded lines.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Claim a deal your own floor traffic brought in. See the definition below.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Keep your accounts. Ads, pixels, recordings and CRM records are yours, including the day you leave.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Mark up media or pocket a platform rebate.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>You need a guaranteed paycheque this month. There's no hourly here.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>You want to be offline at 5pm. That's when most buyers start messaging.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>You expect leads handed to you. You post the cars; the messages come from your listings.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Being self-employed and setting aside your own tax doesn't suit you.</span></li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ DEFINITION ============ -->
-<section>
-  <div class="wrap">
-    <div class="card guarantee reveal">
-      <div class="seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-      </div>
-      <div>
-        <h2>No sale, no invoice. Here's what counts as a sale.</h2>
-        <p class="lede" style="margin-top:14px">"Pay per deal" is only worth something if the deal is defined before you sign. This wording is in the agreement.</p>
-        <div class="definition">
-          <h4>We invoice when all four are true</h4>
-          <ul class="list yes">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>The buyer came from an appointment we booked, logged in your CRM with the source.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>A unit was delivered and the contract funded — not signed, funded.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>They weren't already in your CRM in the <span class="ph" title="placeholder: your real window">90 days</span> before we called.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg><span>Unwound, cancelled or returned deals are credited back in full.</span></li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -622,33 +591,37 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 <section id="faq">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Objections</p>
-      <h2>Questions you'd ask on the call.</h2>
+      <p class="eyebrow">Questions</p>
+      <h2>Before you apply.</h2>
     </div>
     <div class="faq reveal">
       <details>
-        <summary>How do you make money if nobody buys?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>We don't — which is why we turn down dealers whose gross or floor capacity won't carry it. We're funding the ads and the phone work up front, so we only take rooftops we expect to sell for.</p></div>
+        <summary>Do I have to close the sale?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>No. Your job finishes at a booked appointment with the details in the CRM. The dealership's floor team handles the test drive, the numbers and the paperwork.</p></div>
       </details>
       <details>
-        <summary>We already have a BDC. What's different?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Speed and persistence: first dial in minutes, <span class="ph" title="placeholder">six attempts across nine days</span>, and a confirmation call the morning of. If your desk already does that, you don't need us.</p></div>
+        <summary>Do I need car sales experience?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>It helps, but you're not the one closing. What matters is answering quickly, asking the right questions and keeping your follow-ups tidy. If you've sold anything over a phone or a keyboard before, you'll recognise the work.</p></div>
       </details>
       <details>
-        <summary>Who owns the leads and the ad accounts?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>You do. Ads run in your business manager on your card. Enquiries write into your CRM as they arrive. Recordings stay available for <span class="ph" title="placeholder">90 days</span> after you leave.</p></div>
+        <summary>Do I pay for ads or anything else?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>No. Marketplace listings are free to post, and you never pay us for anything — no licence fee, no CRM fee, no training package.</p></div>
       </details>
       <details>
-        <summary>How do we agree which deals you get paid for?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Your CRM decides, not us. Every appointment is logged with its source before the visit, and we invoice from your own delivered-and-funded report. Disputed? It comes off the invoice.</p></div>
+        <summary>When and how do I get paid?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>Once the vehicle is sold and confirmed, you invoice for it and we pay out <span class="ph" title="to confirm: your pay cycle">twice a month</span>. You're self-employed, so nothing is deducted at source — put your own tax aside as you go.</p></div>
       </details>
       <details>
-        <summary>What about CASL, TCPA and do-not-call?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>We only call people who submitted an enquiry on an ad for your stock — express consent, logged with timestamp, form and IP. Numbers scrubbed against the <span class="ph" title="placeholder: your real registration and process">national DNC list</span>; opt-outs honoured within <span class="ph" title="placeholder">24 hours</span>. <span class="ph" title="placeholder">Not legal advice — have your counsel read the agreement.</span></p></div>
+        <summary>What hours am I expected to work?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>Your call, with one condition: you have to overlap with when people are actually shopping for a car. In practice that's evenings and weekends more than nine-to-five. Nobody sets your shifts.</p></div>
       </details>
       <details>
-        <summary>How fast do the first cars move?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="answer"><p>Ads live in week <span class="ph" title="placeholder">2</span>, first appointments <span class="ph" title="placeholder">5–12 days</span> later, first deliveries usually inside <span class="ph" title="placeholder">30 days</span>. Anyone promising sales in week one is counting form fills.</p></div>
+        <summary>What do I need to have?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>A phone, a computer and reliable internet. We supply the number, the CRM, the photos and the accounts. You need to be in Canada and able to invoice as a self-employed contractor.</p></div>
+      </details>
+      <details>
+        <summary>Is there a limit on how many I can do?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="answer"><p>No cap. The limit is how many cars you can get listed and how quickly you get back to people. Post more, answer faster, book more.</p></div>
       </details>
     </div>
   </div>
@@ -658,14 +631,15 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
 <section id="apply">
   <div class="wrap form-grid">
     <div class="reveal">
-      <p class="eyebrow">Territory check</p>
-      <h2>Five questions. We'll tell you if it's a no.</h2>
-      <p class="lede" style="margin-top:14px">A person reads it and replies either way — including when your territory is already taken.</p>
+      <p class="eyebrow">Apply</p>
+      <h2>Two minutes. A person reads it.</h2>
+      <p class="lede" style="margin-top:14px">No CV, no cover letter. Tell us how to reach you and when you can work.</p>
       <ul class="next">
-        <li><span class="n">1</span><span>A reply from a person, usually within <span class="ph" title="placeholder: be honest">two hours</span>.</span></li>
-        <li><span class="n">2</span><span>A straight yes or no, with the reason.</span></li>
-        <li><span class="n">3</span><span>If it's a yes: 20 minutes on your stock and your numbers. No deck.</span></li>
+        <li><span class="n">1</span><span>A manager reads it and replies either way.</span></li>
+        <li><span class="n">2</span><span>A short call: how it works, what you'd make, your questions.</span></li>
+        <li><span class="n">3</span><span>If it's a fit, you're set up with the number, the CRM and the accounts — and posting that week.</span></li>
       </ul>
+      <p class="note" style="margin-top:24px">Questions first? Email <a href="mailto:hello@example.com" class="ph" title="to confirm: real address" style="color:var(--accent)">hello@example.com</a> and ask.</p>
     </div>
 
     <div class="reveal d1">
@@ -676,14 +650,9 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
           <p class="err" id="name-e">Please tell us what to call you.</p>
         </div>
         <div class="f">
-          <label for="dealership">Dealership</label>
-          <input id="dealership" name="dealership" type="text" autocomplete="organization" required aria-describedby="dealership-e" placeholder="Name and city">
-          <p class="err" id="dealership-e">We need the rooftop to check the territory.</p>
-        </div>
-        <div class="f">
-          <label for="email">Work email</label>
+          <label for="email">Email</label>
           <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="email-e">
-          <p class="err" id="email-e">That doesn't look like a work email address.</p>
+          <p class="err" id="email-e">That doesn't look like an email address.</p>
         </div>
         <div class="f">
           <label for="phone">Mobile</label>
@@ -691,35 +660,54 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
           <p class="err" id="phone-e">Please enter a number we can reach you on.</p>
         </div>
         <div class="f">
-          <label for="units">Units delivered in an average month</label>
-          <select id="units" name="units" required aria-describedby="units-e">
+          <label for="province">Where are you?</label>
+          <select id="province" name="province" required aria-describedby="province-e">
             <option value="">Choose one</option>
-            <option>Under 20</option>
-            <option>20 – 50</option>
-            <option>50 – 120</option>
-            <option>Over 120</option>
+            <option>Alberta</option>
+            <option>British Columbia</option>
+            <option>Manitoba</option>
+            <option>New Brunswick</option>
+            <option>Newfoundland and Labrador</option>
+            <option>Nova Scotia</option>
+            <option>Ontario</option>
+            <option>Prince Edward Island</option>
+            <option>Quebec</option>
+            <option>Saskatchewan</option>
+            <option>Northwest Territories</option>
+            <option>Nunavut</option>
+            <option>Yukon</option>
           </select>
-          <p class="err" id="units-e">Pick the closest band — it decides whether this works.</p>
+          <p class="err" id="province-e">Pick your province or territory.</p>
         </div>
         <div class="f">
-          <label for="ctx">Bottleneck right now? <span class="opt">(optional)</span></label>
-          <textarea id="ctx" name="ctx" placeholder="e.g. Plenty of leads, nobody chasing them after 6pm."></textarea>
+          <label for="hours">When can you answer messages?</label>
+          <select id="hours" name="hours" required aria-describedby="hours-e">
+            <option value="">Choose one</option>
+            <option>Evenings and weekends</option>
+            <option>Daytime, most days</option>
+            <option>Most of the day, most days</option>
+            <option>Full time — this would be my main thing</option>
+          </select>
+          <p class="err" id="hours-e">Let us know roughly when you're around.</p>
+        </div>
+        <div class="f">
+          <label for="ctx">Sold anything before? <span class="opt">(optional)</span></label>
+          <textarea id="ctx" name="ctx" placeholder="Cars, phones, insurance, door to door, your own thing — whatever it was."></textarea>
         </div>
         <div class="hp" aria-hidden="true">
-          <label for="dealer-fax">Leave this empty</label>
-          <input id="dealer-fax" name="dealer_fax" type="text" tabindex="-1" autocomplete="off">
+          <label for="rep-fax">Leave this empty</label>
+          <input id="rep-fax" name="rep_fax" type="text" tabindex="-1" autocomplete="off">
         </div>
         <div class="consent">
           <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-e">
-          <label for="consent">Happy to be contacted about this enquiry. One thread, no list.</label>
+          <label for="consent">Happy to be contacted about this application. One thread, no list.</label>
         </div>
         <p class="err" id="consent-e" style="margin:-10px 0 16px">We need this to be able to reply.</p>
         <button class="btn btn-primary btn-lg" type="submit" id="submit" style="width:100%">
-          Check my territory
+          Send it
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        <p class="note" style="margin-top:14px">No tracking pixels on this page, no data sold. <a href="#" style="color:var(--accent)">Privacy policy</a>.</p>
       </form>
     </div>
   </div>
@@ -734,38 +722,38 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
           <span class="glyph" aria-hidden="true"><span>C</span></span>
           <span class="name">Clos<i>er</i></span>
         </a>
-        <p><span class="ph" title="placeholder: real registered address">Unit 4, 120 Example Ave, Calgary, AB T2P 1A1</span><br>
-        <span class="ph" title="placeholder: real registration">Business no. 123456789</span> · <a href="tel:+15870000000" class="ph">587&nbsp;000&nbsp;0000</a></p>
+        <p><span class="ph" title="to confirm: legal entity and address">CLOSER Media Ltd · Calgary, AB</span><br>
+        <a href="mailto:hello@example.com" class="ph" title="to confirm: real address">hello@example.com</a></p>
       </div>
       <div>
         <h4>Page</h4>
         <ul>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#numbers">Your numbers</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#job">The job</a></li>
+          <li><a href="#kit">What you get</a></li>
+          <li><a href="#pay">Pay</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div>
-        <h4>Talk to a person</h4>
+        <h4>The role</h4>
         <ul>
-          <li><a href="mailto:hello@example.com" class="ph">hello@example.com</a></li>
-          <li><a href="#apply">Territory check</a></li>
-          <li><a href="#">Privacy policy</a></li>
-          <li><a href="#">Terms &amp; consent policy</a></li>
+          <li>Self-employed contractor</li>
+          <li>Remote, anywhere in Canada</li>
+          <li>$150 per deal + bonuses</li>
+          <li><a href="#apply">Apply</a></li>
         </ul>
       </div>
     </div>
     <div class="legal">
-      <p>© <span id="year">2026</span> <span class="ph" title="placeholder: real legal entity">CLOSER Media Ltd</span>. Figures are placeholders until replaced.</p>
-      <p>One dealer per brand, per territory.</p>
+      <p>© <span id="year">2026</span> <span class="ph" title="to confirm: legal entity">CLOSER Media Ltd</span>.</p>
+      <p>Dotted items are still to be confirmed.</p>
     </div>
   </div>
 </footer>
 
 <div class="sticky-cta" id="sticky">
-  <p><strong class="k">$<span class="ph" title="placeholder">399</span> per car sold.</strong> Nothing before that.</p>
-  <a class="btn btn-primary btn-sm" href="#apply">Check territory</a>
+  <p><strong class="k">$150 a deal.</strong> Your own hours.</p>
+  <a class="btn btn-primary btn-sm" href="#apply">Apply</a>
 </div>
 
 <script>
@@ -773,14 +761,9 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- REPLACE: keep in step with the pricing section ---------- */
-  var DEAL_FEE = 399;         // charged per unit delivered
+  /* ---------- number formatting ---------- */
   var CURRENCY = 'en-CA';
   var SYMBOL = '$';
-
-  var banner = document.getElementById('tpl-banner');
-  var dismiss = document.getElementById('tpl-dismiss');
-  if (dismiss && banner) dismiss.addEventListener('click', function () { banner.remove(); });
 
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
@@ -890,12 +873,9 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   window.addEventListener('load', sweep);
   sweep();
 
-  /* ---------- pay-per-deal calculator ---------- */
-  var appts = document.getElementById('appts');
-  var close = document.getElementById('close');
-  var gross = document.getElementById('gross');
-  var media = document.getElementById('media');
-  var sliders = [appts, close, gross, media];
+  /* ---------- rep pay: $150 x deals ---------- */
+  var DEAL_PAY = 150;
+  var deals = document.getElementById('deals');
 
   function paintRange(el) {
     if (!el) return;
@@ -904,52 +884,27 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
   }
 
   function recalc() {
-    if (sliders.some(function (s) { return !s; })) return;
-    var units = (+appts.value) * 12 * (+close.value / 100);
-    var grossTotal = units * (+gross.value);
-    var fee = units * DEAL_FEE;
-    var mediaTotal = (+media.value) * 12;
-    var cost = fee + mediaTotal;
-    var net = grossTotal - cost;
-    var roi = cost > 0 ? grossTotal / cost : 0;
+    if (!deals) return;
+    var n = +deals.value;
+    var month = n * DEAL_PAY;
 
-    document.getElementById('appts-v').textContent = appts.value;
-    document.getElementById('close-v').textContent = close.value + '%';
-    document.getElementById('gross-v').textContent = money(+gross.value);
-    document.getElementById('media-v').textContent = money(+media.value);
-
-    document.getElementById('out-net').textContent = money(net);
-    document.getElementById('out-units').textContent = fmtInt(units);
-    document.getElementById('out-gross').textContent = money(grossTotal);
-    document.getElementById('out-fee').textContent = money(fee);
-    document.getElementById('out-media').textContent = money(mediaTotal);
-    document.getElementById('out-roi').textContent = roi.toFixed(1) + '×';
-
-    document.getElementById('out-sub').textContent = net <= 0
-      ? 'you would be underwater at these numbers — don’t book the call'
-      : 'gross profit, after our fee and your media';
-
+    document.getElementById('deals-v').textContent = n;
+    document.getElementById('out-month').textContent = money(month);
+    document.getElementById('out-deals').textContent = n;
+    document.getElementById('out-year').textContent = money(month * 12);
     document.getElementById('out-live').textContent =
-      money(net) + ' net over twelve months, from ' + fmtInt(units) +
-      ' units delivered, at a return of ' + roi.toFixed(1) + ' times what you spend.';
-
-    sliders.forEach(paintRange);
+      n + ' deals a month is ' + money(month) + ' a month, or ' + money(month * 12) + ' over twelve months, before bonuses and before tax.';
+    paintRange(deals);
   }
 
-  sliders.forEach(function (el) {
-    if (!el) return;
-    el.addEventListener('input', recalc);
-    paintRange(el);
-  });
-  recalc();
+  if (deals) { deals.addEventListener('input', recalc); recalc(); }
+  var sliders = [deals];
 
   /* ---------- form ---------- */
   var form = document.getElementById('apply-form');
   if (form) {
     var status = document.getElementById('form-status');
     var submitBtn = document.getElementById('submit');
-    var freeMail = /@(gmail|yahoo|hotmail|outlook|icloud|live|aol|protonmail|gmx)\./i;
-
     function errorEl(input) { return document.getElementById(input.id + '-e'); }
 
     function validate(input, silent) {
@@ -961,8 +916,8 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
       } else if (input.hasAttribute('required') && !v) {
         ok = false;
       } else if (input.id === 'email') {
+        // any address is fine here — applicants use personal email
         ok = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v);
-        if (ok && freeMail.test(v)) { ok = false; msg = 'Please use your dealership address — it tells us which rooftop you are.'; }
       } else if (input.id === 'phone') {
         ok = v.replace(/\D/g, '').length >= 10;
       }
@@ -1016,8 +971,8 @@ footer.site a:hover{color:var(--mist);text-decoration:underline}
         submitBtn.textContent = ok ? 'Sent' : 'Try again';
         status.className = 'form-status ' + (ok ? 'good' : 'bad');
         status.textContent = ok
-          ? 'Got it, ' + who + '. A person replies either way — usually within two hours.'
-          : 'That didn’t send. Call or email us directly and we’ll pick it up.';
+          ? 'Got it, ' + who + '. A manager reads every one of these and replies either way.'
+          : 'That didn’t send. Email us directly and we’ll pick it up.';
         if (ok) { form.reset(); sliders.forEach(paintRange); }
       }
 
